@@ -39,9 +39,14 @@ main {
 }
 
 .question-block__body {
+  background-color: #f6f6f6;
   padding: 5px 20px;
 }
 
 .question-block__body p {
   padding: 0 10px;
+}
+
+.question-block__body p:first-of-type {
+  text-indent: 40px;
 }
