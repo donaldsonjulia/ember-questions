@@ -1,4 +1,5 @@
-{{#question-block question-title="#1"}}
-This is a test question about the following code.
+{{#question-block question-title="#1 - this._super(...arguments)" snippet-name="list-filter.js"}}
+  <p>In the Ember Guides tutorial, when they instruct you to create a list-filter component, they include <code>this._super(...arguments)</code> in the component's init function but don't explain why exactly. I did some research and it still is confusing to me about when to use and when not to, or really what it is doing. What are the arguments and where are they coming from? The Ember guides don't really give me an example that fully clicks with me - I understand it in the context of the Person and Solider objects they use, but that doesn't really help me to understand it in a real-world app context. I found this <a href="https://www.mutuallyhuman.com/blog/2016/07/01/summer-of-ember-always-call-this-_super">article</a> which led me to this <a href="https://ember-twiddle.com/b977be3e108dd4a315a84e0dcea8e587?fileTreeShown=false&openFiles=controllers.application.js%2Ctwiddle">twiddle example</a> of the call order, but I'm still confused to be totally honest...</p>
+  <p>Below is the list-filter component code from the Ember guides "Super Rentals" project, which is what led me to this question:</p>
 {{/question-block}}
 {{outlet}}
