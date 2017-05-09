@@ -1,3 +1,41 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #3e3e3e;
+}
+
+header {
+  text-align: center;
+  color: #aaa;
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .outlined {
   border: 1px solid #ddd;
+}
+
+.question-block {
+  border: 1px solid #bbb;
+  box-shadow: 0 2px 4px #aaa;
+}
+
+.question-block__header {
+  align-items: center;
+  background-color: #d5e5ec;
+  border-bottom: 1px solid #bbb;
+  display: flex;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.question-block__header h3 {
+  margin: 0;
+}
+
+.question-block__body {
+  padding: 5px 20px;
 }
