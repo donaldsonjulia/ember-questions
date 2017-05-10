@@ -4,7 +4,7 @@
 {{/question-block}}
 
 {{#question-block question-title="#2 - passing 'app' into test helper functions" snippet-name="bands-test.js"}}
-  <p>In RARWE, the creation of test helpers is outlined for us. When defining the test helper functions, <code>app</code> is passed in as an argument. The <code>app</code> argument is only passed in the test helper functions - the book does not include it as an argument when defining helper functions for the main app. What confused me the most is that when we call those helpers in our test, we are not explicitly passing in any value for <code>app</code>, the arguments begin directly with <code>assert</code> instead.</p>
+  <p>In RARWE, the creation of test helpers is outlined for us. When defining the test helper functions, <code>app</code> is passed in as an argument. The <code>app</code> argument is only passed in the test helper functions - the book does not include it as an argument when defining helper functions for the main app. What confused me the most is that when we call those helpers in our test, we are not explicitly passing in any value for <code>app</code>, the arguments begin directly with <code>assert</code> instead. From what I understand in the Ember Guides, it is simply the syntax that Ember requires when registering test helpers and it always needs to be there.</p>
   <p>Here is the code in which we define the test helpers and the expected parameters:</p>
   {{code-snippet name="asserts.js" class="outlined"}}
   <p>And below, the test that calls the helper functions (without passing 'app' as an argument):</p>
