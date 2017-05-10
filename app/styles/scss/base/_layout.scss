@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+header {
+  text-align: center;
+  color: #aaa;
+  font-size: 1.5em;
+}
+
+main {
+  @include grid-container;
+  max-width: 1200px;
+  margin: 0 auto;
+}

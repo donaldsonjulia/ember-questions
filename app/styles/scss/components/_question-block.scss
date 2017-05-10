@@ -1,0 +1,32 @@
+.question-block {
+  @include grid-column(11);
+  @include grid-shift(0.5);
+  border: 1px solid #bbb;
+  box-shadow: 0 2px 4px #aaa;
+  margin-bottom: 30px;
+
+  &__header {
+    align-items: center;
+    background-color: #d5e5ec;
+    border-bottom: 1px solid #bbb;
+    display: flex;
+    min-height: 40px;
+    padding: 3px 10px;
+      h3 {
+        margin: 0;
+      }
+  }
+
+  &__body {
+    background-color: #f6f6f6;
+    padding: 20px;
+      p {
+        padding: 0 10px;
+      }
+
+      p:first-of-type {
+        text-indent: 40px;
+      }
+  }
+
+}
