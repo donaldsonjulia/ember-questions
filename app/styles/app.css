@@ -23,6 +23,7 @@ main {
 .question-block {
   border: 1px solid #bbb;
   box-shadow: 0 2px 4px #aaa;
+  margin-bottom: 30px;
 }
 
 .question-block__header {

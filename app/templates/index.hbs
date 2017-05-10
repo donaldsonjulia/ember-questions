@@ -1,5 +1,14 @@
 {{#question-block question-title="#1 - this._super(...arguments)" snippet-name="list-filter.js"}}
-  <p>In the Ember Guides tutorial, when they instruct you to create a list-filter component, they include <code>this._super(...arguments)</code> in the component's init function but don't explain why exactly. I did some research and it still is confusing to me about when to use and when not to, or really what it is doing. What are the arguments and where are they coming from? The Ember guides don't really give me an example that fully clicks with me - I understand it in the context of the Person and Solider objects they use, but that doesn't really help me to understand it in a real-world app context. I found this <a href="https://www.mutuallyhuman.com/blog/2016/07/01/summer-of-ember-always-call-this-_super">article</a> which led me to this <a href="https://ember-twiddle.com/b977be3e108dd4a315a84e0dcea8e587?fileTreeShown=false&openFiles=controllers.application.js%2Ctwiddle">twiddle example</a> of the call order, but I'm still confused to be totally honest...</p>
-  <p>Below is the list-filter component code from the Ember guides "Super Rentals" project, which is what led me to this question:</p>
+    <p>In the Ember Guides tutorial, while creating a list-filter component, they include <code>this._super(...arguments)</code> in the component's init function but don't explain why exactly. I did some research, but it is still confusing to me. When should it be used or not used, and why exactly? What are the 'arguments' and where are they coming from? The Ember Guides give an example that doesn't fully click - I understand it in the context of the Person and Solider objects they use, but I'm still confused about how to use it in the context of a real-world app. I found this <a href="https://www.mutuallyhuman.com/blog/2016/07/01/summer-of-ember-always-call-this-_super">blog post</a> which led me to this <a href="https://ember-twiddle.com/b977be3e108dd4a315a84e0dcea8e587?fileTreeShown=false&openFiles=controllers.application.js%2Ctwiddle">twiddle example</a> of how it all works, but I'm still confused to be totally honest...</p>
+    <p>Below is the list-filter component code from the Ember guides "Super Rentals" project, which is what led me to this question:</p>
 {{/question-block}}
+
+{{#question-block question-title="#2 - passing 'app' into test helper functions" snippet-name="bands-test.js"}}
+  <p>In RARWE, the creation of test helpers is outlined for us. When defining the test helper functions, <code>app</code> is passed in as an argument. The <code>app</code> argument is only passed in the test helper functions - the book does not include it as an argument when defining helper functions for the main app. What confused me the most is that when we call those helpers in our test, we are not explicitly passing in any value for <code>app</code>, the arguments begin directly with <code>assert</code> instead.</p>
+  <p>Here is the code in which we define the test helpers and the expected parameters:</p>
+  {{code-snippet name="asserts.js" class="outlined"}}
+  <p>And below, the test that calls the helper functions (without passing 'app' as an argument):</p>
+{{/question-block}}
+
+
 {{outlet}}
