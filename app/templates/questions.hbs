@@ -1,5 +1,5 @@
-{{#each model as |question|}}
-  <h1>{{question.title}}</h1>
-  <p>{{question.text}}</p>
-{{/each}}
+<div class="second-nav">
+  {{#link-to "questions.list" class="second-nav__item"}}View All{{/link-to}}
+  {{#link-to "questions.new" class="second-nav__item"}}Add New Question{{/link-to}}
+</div>
 {{outlet}}

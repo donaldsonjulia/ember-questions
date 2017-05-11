@@ -1,7 +1,11 @@
 <div class="question-block__header">
-  <h3>Question: {{question-title}}</h3>
+  <h3 class="question-block__subject"><span>Q:</span> {{question.subject}}</h3>
+  <p class="question-block__details">posted by <span>{{question.author}}</span> on {{question.formattedDate}}</p>
 </div>
 <div class="question-block__body">
-{{yield}}
-{{code-snippet name=snippet-name class="outlined"}}
+  <p>{{question.text}}</p>
+  {{yield}}
+  {{#if question.snippets}}
+    {{code-snippet name=snippet-name class="outlined"}}
+  {{/if}}
 </div>

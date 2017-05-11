@@ -1,0 +1,5 @@
+.new-question-form {
+  @include grid-column(8);
+  @include grid-shift(2);
+  margin: 10px 0;
+}

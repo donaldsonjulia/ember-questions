@@ -8,7 +8,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('questions', function() {
-    this.route('answers');
+    this.route('new');
+    this.route('question');
+    this.route('list');
   });
 });
 

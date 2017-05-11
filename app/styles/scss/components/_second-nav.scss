@@ -1,0 +1,9 @@
+.second-nav {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  
+  &__item {
+    margin: 5px 10px;
+  }
+}
