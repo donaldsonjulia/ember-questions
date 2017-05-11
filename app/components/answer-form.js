@@ -7,14 +7,14 @@ export default Ember.Component.extend({
   question: null,
   author: '',
   text: '',
-  onSubmit: '',
+  "on-submit": null,
 
   actions: {
     postAnswer() {
       let question = this.get('question');
       let author = this.get('author');
       let text = this.get('text');
-      this.sendAction('onSubmit', {
+      this.get('on-submit')({
         question: question,
         author: author,
         text: text

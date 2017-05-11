@@ -13,4 +13,4 @@
     <p class="question-answers__message">No answers yet.</p>
   {{/if}}
 </div>
-{{answer-form question=model onSubmit="createAnswer"}}
+{{answer-form question=model on-submit=(action "createAnswer")}}
