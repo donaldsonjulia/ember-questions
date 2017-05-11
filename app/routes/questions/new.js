@@ -7,7 +7,6 @@ export default Ember.Route.extend({
 
   actions: {
     createQuestion() {
-      console.log('creating question');
       let controller = this.get('controller');
       let author = controller.get('author');
       let subject = controller.get('subject');
@@ -28,8 +27,8 @@ export default Ember.Route.extend({
 
         this.transitionTo('questions.list');
       });
+    },
 
 
-    }
   }
 });

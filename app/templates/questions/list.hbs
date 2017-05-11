@@ -1,5 +1,7 @@
 {{#each model as |questionObj|}}
-  {{question-block question=questionObj}}
+  {{#link-to "questions.question" questionObj}}
+    {{question-preview question=questionObj}}
+  {{/link-to}}
 {{/each}}
 
 {{outlet}}

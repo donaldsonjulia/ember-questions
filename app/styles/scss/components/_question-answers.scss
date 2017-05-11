@@ -1,0 +1,15 @@
+.question-answers {
+  @include grid-column(10);
+  @include grid-shift(1);
+
+  &__answer {
+    border: 1px solid $base-border-color;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  &__message {
+    text-align: center;
+    color: red;
+  }
+}

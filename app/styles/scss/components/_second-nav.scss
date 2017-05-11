@@ -1,8 +1,9 @@
 .second-nav {
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(center);
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+
   &__item {
     margin: 5px 10px;
   }

@@ -1,9 +1,15 @@
-.question-block {
+.question-preview {
   @include grid-column(11);
   @include grid-shift(0.5);
   border: 1px solid #bbb;
   box-shadow: 0 2px 4px #aaa;
   margin-bottom: 30px;
+  color: $base-font-color;
+
+  &:hover {
+    transform: translateY(1px);
+    color: $base-font-color;
+  }
 
   &__header {
     display: flex;
@@ -39,13 +45,13 @@
   &__body {
     background-color: #f6f6f6;
     padding: 20px;
-      p {
-        padding: 0 10px;
-      }
+    display: flex;
+  }
 
-      p:first-of-type {
-        text-indent: 40px;
-      }
+  &__preview-text {
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 3px;
   }
 
 }

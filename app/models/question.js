@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 import moment from 'moment';
 
@@ -10,6 +11,10 @@ export default DS.Model.extend({
 
   formattedDate: Ember.computed('createdAt', function() {
     return moment(this.get('createdAt')).format('MM/DD/YYYY');
-  })
+  }),
+
+  textPreview: Ember.computed('text', function() {
+    return this.get('text').split(' ').slice(0, 50).join(' ');
+  }),
 
 });
