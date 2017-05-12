@@ -22,11 +22,25 @@
   }
 
   &__subject {
+    display: inline;
     margin: 0;
     span {
       color: $medium-gray;
       margin-right: 5px;
     }
+  }
+
+  &__alert {
+    display: inline;
+    border: 1px solid $base-font-color;
+    padding: 0 3px;
+    margin-left: 10px;
+    font-size: .8em;
+  }
+
+  &__alert--error {
+    color: red;
+    border-color: red;
   }
 
   &__details {
