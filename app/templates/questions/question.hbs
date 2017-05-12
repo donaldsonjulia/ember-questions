@@ -3,10 +3,7 @@
   {{#if model.answers}}
     <ul>
       {{#each model.answers as |answer|}}
-        <li class="question-answers__answer">
-          <h6>Reply from {{answer.author}}:</h6>
-          <p>{{answer.text}}</p>
-        </li>
+        {{c-comment comment=answer}}
       {{/each}}
     </ul>
   {{else}}

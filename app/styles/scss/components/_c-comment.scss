@@ -1,0 +1,57 @@
+.c-comment {
+  $comment-gutter: 1.4em;
+  $comment-image-padding: .3em;
+  $comment-image-width: 3em;
+  $comment-color: $base-font-color;
+  $comment-background: $light-gray;
+  $comment-detail-color: transparentize($comment-color, 0.5);
+  $comment-image-vert-alignment: top;
+
+  border-bottom: 1px solid transparentize($comment-color, 0.9);
+  display: table;
+  margin-bottom: $base-spacing;
+  padding-bottom: 1em;
+  width: 100%;
+
+  .c-comment__image,
+  .c-comment__content {
+    display: table-cell;
+    vertical-align: $comment-image-vert-alignment;
+  }
+
+  .c-comment__image {
+    padding-right: $comment-gutter;
+
+    > img {
+      background: $comment-background;
+      border-radius: $base-border-radius;
+      display: block;
+      height: auto;
+      max-width: none;
+      padding: $comment-image-padding;
+      width: $comment-image-width;
+    }
+
+  }
+
+  .c-comment__content {
+    width: 100%;
+
+    h1 {
+      font-size: 1em;
+      font-weight: 600;
+      margin: 0 0 0.5em 0;
+    }
+
+    p {
+      line-height: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p.c-comment__detail {
+      color: $comment-detail-color;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+  }
+}
