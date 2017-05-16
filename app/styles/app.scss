@@ -3,6 +3,7 @@
 @import "scss/base/base";
 @import "scss/helpers";
 
+@import "scss/components/c-nav";
 @import "scss/components/c-comment";
 @import "scss/components/question-block";
 @import "scss/components/question-preview";
@@ -10,5 +11,3 @@
 @import "scss/components/new-question-form";
 @import "scss/components/answer-form";
 @import "scss/components/app-header";
-@import "scss/components/c-nav";
-@import "scss/components/flashes";

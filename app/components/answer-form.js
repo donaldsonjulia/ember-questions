@@ -9,6 +9,8 @@ export default Ember.Component.extend({
   text: '',
   "on-submit": null,
 
+  formIncomplete: Ember.computed.empty('author') && Ember.computed.empty('text'),
+
   actions: {
     postAnswer() {
       let question = this.get('question');

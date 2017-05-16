@@ -27,8 +27,7 @@ export default Ember.Route.extend({
 
         this.transitionTo('questions.list');
       });
-    },
-
-
+    }
   }
+
 });

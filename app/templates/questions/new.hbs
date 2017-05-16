@@ -1,4 +1,3 @@
-
 <form class="new-question-form" {{action "createQuestion" on="submit"}}>
   <fieldset>
     <legend>ASK A NEW QUESTION:</legend>
@@ -6,6 +5,6 @@
     {{input type="text" placeholder="Subject" value=subject}}
     {{textarea placeholder="Question" value=text rows=6}}
   </fieldset>
-  <button type="submit">SUBMIT</button>
+  <button type="submit" disabled={{questionFormInvalid}}>SUBMIT</button>
 </form>
 {{outlet}}
