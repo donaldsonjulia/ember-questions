@@ -1,0 +1,36 @@
+.nav {
+  @include grid-column(1, $single-grid);
+
+  align-items: center;
+  background: $base-background-color;
+  border-bottom: $base-border;
+  display: flex;
+  height: 2em;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  padding: 0 20px 5px 20px;
+
+  &__logo {
+    font-family: $heading-font-family;
+    font-size: 1.3em;
+  }
+
+  &__menu {
+    background: $base-background-color;
+  }
+
+  &__menu-item {
+    display: inline;
+
+    a {
+      color: $base-font-color;
+      font-family: $heading-font-family;
+      margin-left: 20px;
+      &:hover {
+        color: $action-color;
+      }
+    }
+  }
+
+}
