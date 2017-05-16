@@ -1,5 +1,10 @@
-<div class="second-nav">
-  {{#link-to "questions.list" class="second-nav__item"}}View All{{/link-to}}
-  {{#link-to "questions.new" class="second-nav__item"}}Add New Question{{/link-to}}
+<div class="route-nav">
+  <div class="route-nav__left-items">
+    {{#link-to "questions.index" class="route-nav__title"}}EMBER Q&A{{/link-to}}
+  </div>
+  <div class="route-nav__right-items">
+    {{#link-to "questions.list" class="route-nav__item"}}VIEW ALL{{/link-to}}
+    {{#link-to "questions.new" class="route-nav__item"}}ADD NEW QUESTION{{/link-to}}
+  </div>
 </div>
 {{outlet}}

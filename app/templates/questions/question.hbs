@@ -7,7 +7,9 @@
       {{/each}}
     </ul>
   {{else}}
-    <p class="question-answers__message">No answers yet.</p>
+    <div class="flash-alert">
+      <span>No answers yet.</span>
+    </div>
   {{/if}}
 </div>
 {{answer-form question=model on-submit=(action "createAnswer")}}

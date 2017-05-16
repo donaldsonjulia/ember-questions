@@ -1,9 +1,14 @@
 .question-preview {
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
   @include grid-column(11);
   @include grid-shift(0.5);
-  border: 1px solid #bbb;
-  box-shadow: 0 2px 4px #aaa;
-  margin-bottom: 30px;
+  }
+
+  border: $base-border;
+  box-shadow: 0 2px 4px $light-gray;
+  margin-bottom: 1.5em;
   color: $base-font-color;
 
   &:hover {
@@ -13,38 +18,45 @@
 
   &__header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #d5e5ec;
-    border-bottom: 1px solid #bbb;
+    flex-direction: column;
+    background-color: $theme-color;
     min-height: 40px;
     padding: 3px 10px;
+
+    @media screen and (min-width: 800px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   &__subject {
     display: inline;
     margin: 0;
     span {
-      color: $medium-gray;
+      color: #fff;
       margin-right: 5px;
     }
   }
 
   &__alert {
     display: inline;
-    border: 1px solid $base-font-color;
-    padding: 0 3px;
+    background-color: #e6efc2;
+    border-radius: $base-border-radius;
+    padding: 3px 5px;
     margin-left: 10px;
+    font-family: $heading-font-family;
     font-size: .8em;
   }
 
   &__alert--error {
-    color: red;
-    border-color: red;
+    background-color: $action-color;
+    color: #fff;
   }
 
   &__details {
     margin: 0;
+    margin-left: 15px;
     font-size: .9em;
     font-style: italic;
 
@@ -57,7 +69,7 @@
 
 
   &__body {
-    background-color: #f6f6f6;
+    background-color: $base-background-color;
     padding: 20px;
     display: flex;
   }

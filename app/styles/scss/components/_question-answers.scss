@@ -1,6 +1,11 @@
 .question-answers {
+
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
   @include grid-column(10);
   @include grid-shift(1);
+ }
 
   &__answer {
     border: 1px solid $base-border-color;

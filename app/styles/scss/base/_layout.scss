@@ -11,16 +11,12 @@ html {
 html,
 body {
   height: 100%;
-}
-
-header {
-  text-align: center;
-  color: $medium-gray;
-  font-size: 1.5em;
+  margin: 0;
 }
 
 main {
   @include grid-container;
   max-width: 1200px;
   margin: 0 auto;
+  margin-bottom: 2em;
 }

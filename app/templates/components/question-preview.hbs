@@ -2,9 +2,9 @@
   <div>
     <h3 class="question-preview__subject"><span>Q:</span> {{question.subject}}</h3>
     {{#if question.answers}}
-      <span class="question-preview__alert">Answers: {{question.answers.length}}</span>
+      <span class="question-preview__alert">{{question.answers.length}} ANSWERS</span>
     {{else}}
-      <span class="question-preview__alert question-preview__alert--error">Unanswered</span>
+      <span class="question-preview__alert question-preview__alert--error">NEEDS ANSWER</span>
     {{/if}}
   </div>
   <p class="question-preview__details">posted by <span>{{question.author}}</span> on {{question.formattedDate}}</p>
