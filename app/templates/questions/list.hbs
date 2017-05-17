@@ -1,7 +1,24 @@
-{{#each model as |questionObj|}}
-  {{#link-to "questions.question" questionObj}}
-    {{question-preview question=questionObj}}
-  {{/link-to}}
-{{/each}}
+<table class="question-table">
+  {{#each model as |question|}}
+        <tr class="question-table__question-row">
+          <td class="question-table__question-data question-table__question-data--answers">
+              <div class="answers">
+                {{#if question.answers}}
+                  <span class="answers-number">{{question.answers.length}}</span> <span class="has-answers">ANSWERS</span>
+                {{else}}
+                  <span class="no-answers">NEEDS ANSWER</span>
+                {{/if}}
+              </div>
+          </td>
+          <td class="question-table__question-data question-table__question-data--subject">
+            {{#link-to "questions.question" question}}
+              <h3>{{question.subject}}</h3>
+            {{/link-to}}
+          </td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author">{{question.author}}</span> on {{question.formattedDate}}</p></td>
+        </tr>
+  {{/each}}
+</table>
+
 
 {{outlet}}

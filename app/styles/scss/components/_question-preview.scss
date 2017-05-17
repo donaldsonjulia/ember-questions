@@ -31,6 +31,7 @@
   }
 
   &__subject {
+    color: $base-font-color;
     display: inline;
     margin: 0;
     span {
@@ -40,13 +41,14 @@
   }
 
   &__alert {
-    display: inline;
+    // display: inline;
     background-color: #e6efc2;
     border-radius: $base-border-radius;
     padding: 3px 5px;
     margin-left: 10px;
     font-family: $heading-font-family;
     font-size: .8em;
+    width: 100px;
   }
 
   &__alert--error {
@@ -55,6 +57,7 @@
   }
 
   &__details {
+    float: right;
     margin: 0;
     margin-left: 15px;
     font-size: .9em;
