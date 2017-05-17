@@ -16,6 +16,9 @@
 
 
   &__question-data--subject {
+    h3 {
+      margin: 0 10px;
+    }
   }
 
   &__question-data--answers {
@@ -27,7 +30,6 @@
       display: flex;
       flex-direction: column;
       float: left;
-      margin-left: 15px;
     }
 
     .answers-number {
@@ -54,7 +56,7 @@
     text-align: right;
 
     p {
-      margin-right: 15px;
+      margin: 0;
     }
 
     .author {

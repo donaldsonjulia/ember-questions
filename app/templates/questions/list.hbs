@@ -8,7 +8,7 @@
           <td class="question-table__question-data question-table__question-data--answers">
               <div class="answers">
                 {{#if question.answers}}
-                  <span class="answers-number">{{question.answers.length}}</span> <span class="has-answers">ANSWERS</span>
+                  <span class="answers-number">{{question.answers.length}}</span><span class="has-answers">{{answer-amount question.answers.length}}</span>
                 {{else}}
                   <span class="no-answers">NEEDS ANSWER</span>
                 {{/if}}
