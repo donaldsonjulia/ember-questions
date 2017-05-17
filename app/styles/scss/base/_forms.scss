@@ -78,6 +78,10 @@ textarea {
 }
 
 select {
+  background-color: $base-background-color;
+  border: $base-border;
+  height: 2em;
   margin-bottom: $small-spacing;
+  outline: 0;
   width: 100%;
 }

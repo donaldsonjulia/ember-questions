@@ -4,7 +4,6 @@ export default Ember.Controller.extend({
 
   actions: {
     createAnswer(params) {
-    console.log('creating answer via question route');
       let question = params.question;
       let author = params.author;
       let text = params.text;

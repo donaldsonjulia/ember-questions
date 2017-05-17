@@ -1,5 +1,16 @@
 <div class="route-header">
-  <h1 class="route-header__title">QUESTIONS</h1>
+  <h1 class="route-header__title">ALL QUESTIONS</h1>
+</div>
+
+<div class="question-toolbar">
+  <div class="question-toolbar__sort-params-select">
+    <label>sort by:</label>
+    <select onchange={{action (mut sortParam) value="target.value"}}>
+      {{#each sortParams as |paramChoice|}}
+        <option value={{paramChoice}} selected={{eq sortParam paramChoice}}>{{paramChoice}}</option>
+      {{/each}}
+    </select>
+  </div>
 </div>
 
 <table class="question-table">
@@ -15,9 +26,11 @@
               </div>
           </td>
           <td class="question-table__question-data question-table__question-data--subject">
-            {{#link-to "questions.question" question}}
-              <h3>{{question.subject}}</h3>
-            {{/link-to}}
+              <h3>
+                {{#link-to "questions.question" question}}
+                  {{question.subject}}
+                {{/link-to}}
+              </h3>
           </td>
           <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author">{{question.author}}</span> on {{question.formattedDate}}</p></td>
         </tr>
