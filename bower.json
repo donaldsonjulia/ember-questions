@@ -1,7 +1,7 @@
 {
   "name": "questions",
   "dependencies": {
-    "prism": "^1.6.0",
-    "simditor": "^2.3.6"
+    "simditor": "^2.3.6",
+    "highlightjs": "^9.11.0"
   }
 }

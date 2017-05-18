@@ -49,13 +49,13 @@
   &__body {
     background-color: $base-background-color;
     padding: 20px;
-      p {
-        padding: 0 10px;
-      }
 
-      p:first-of-type {
-        text-indent: 40px;
-      }
+    // pre {
+    //   background-color: shade($secondary-background-color, 5%);
+    //   border-radius: $base-border-radius;
+    //   padding: 10px;
+    //   width: 100%;
+    // }
   }
 
 }
