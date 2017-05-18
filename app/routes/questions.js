@@ -6,6 +6,8 @@ export default Ember.Route.extend({
     return this.store.findAll('question');
   },
 
-
+  resetController(controller) {
+      controller.set('mobileMenuHidden', true);
+  },
 
 });

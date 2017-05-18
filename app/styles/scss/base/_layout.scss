@@ -15,7 +15,6 @@ body {
 }
 
 header {
-  @include grid-container;
   max-width: 1200px;
   margin: 0 auto;
 }

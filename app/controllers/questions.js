@@ -9,4 +9,17 @@ export default Ember.Controller.extend({
 
   questionFormInvalid: Ember.computed.empty('author') && Ember.computed.empty('subject') && Ember.computed.empty('text'),
 
+
+
+  mobileMenuHidden: true,
+
+  actions: {
+    toggleMobileMenu() {
+      this.toggleProperty('mobileMenuHidden');
+    },
+
+  }
+
+
+
 });

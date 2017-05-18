@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-
   sortOption: 'Unanswered',
 
   sortOptions: {
@@ -20,8 +19,9 @@ export default Ember.Controller.extend({
     return this.get('sortOptions')[this.get('sortOption').toLowerCase()].params.split(',');
   }),
 
-
   sortedQuestions: Ember.computed.sort('model', 'sortParam'),
+
+  searchTerm: '',
 
   actions: {
   },
