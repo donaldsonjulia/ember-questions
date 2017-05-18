@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
 //hides mobile menu at small screen width, attached to classname on element
   mobileMenuHidden: true,
 
-// search input value on navigation bar for searchAll action
+// search input value on navigation bar for searchAll action on 'questions' route
   searchTerm: '',
 
 
@@ -22,10 +22,7 @@ export default Ember.Controller.extend({
     toggleMobileMenu() {
       this.toggleProperty('mobileMenuHidden');
     },
-    searchAll() {
-      let searchTerm = this.get('searchTerm');
-      console.log(searchTerm);
-    },
+
 
 
   }
