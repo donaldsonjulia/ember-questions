@@ -6,7 +6,8 @@ module.exports = function(defaults) {
     // Add options here
   });
 
-
+  app.import('bower_components/prism/prism.js');
+  app.import('bower_components/prism/themes/prism.css');
 
 
   return app.toTree();

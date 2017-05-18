@@ -13,4 +13,18 @@
     float: right;
     margin-top: 1em;
   }
+
+  div.simditor {
+    border: $base-border;
+    border-radius: $base-border-radius;
+  }
+
+  div.simditor-body {
+    font-family: $base-font-family;
+  }
+
+  div.simditor-placeholder {
+    font-family: $base-font-family !important;
+  }
+
 }

@@ -50,12 +50,12 @@
     background-color: $base-background-color;
     padding: 20px;
 
-    // pre {
-    //   background-color: shade($secondary-background-color, 5%);
-    //   border-radius: $base-border-radius;
-    //   padding: 10px;
-    //   width: 100%;
-    // }
+    pre {
+      background-color: $secondary-background-color;
+      border-radius: $base-border-radius;
+      padding: 10px;
+      width: 100%;
+    }
   }
 
 }
