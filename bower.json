@@ -1,6 +1,7 @@
 {
   "name": "questions",
   "dependencies": {
-    "prism": "^1.6.0"
+    "prism": "^1.6.0",
+    "simditor": "^2.3.6"
   }
 }
