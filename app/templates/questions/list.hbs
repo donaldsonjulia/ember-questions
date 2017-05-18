@@ -5,16 +5,16 @@
 <div class="question-toolbar">
   <div class="question-toolbar__sort-params-select">
     <label>sort by:</label>
-    <select onchange={{action (mut sortParam) value="target.value"}}>
-      {{#each sortParams as |paramChoice|}}
-        <option value={{paramChoice}} selected={{eq sortParam paramChoice}}>{{paramChoice}}</option>
-      {{/each}}
+    <select onchange={{action (mut sortOption) value="target.value"}}>
+      {{#each-in sortOptions as |sortChoice choiceProps|}}
+        <option value={{paramChoice}} selected={{eq sortOption choiceProps.placeholder}}>{{choiceProps.placeholder}}</option>
+      {{/each-in}}
     </select>
   </div>
 </div>
 
 <table class="question-table">
-  {{#each model as |question|}}
+  {{#each sortedQuestions as |question|}}
         <tr class="question-table__question-row">
           <td class="question-table__question-data question-table__question-data--answers">
               <div class="answers">

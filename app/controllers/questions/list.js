@@ -1,13 +1,29 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  sortParam: 'Unanswered',
-  sortParams: Ember.String.w('Newest Unanswered'),
+
+
+  sortOption: 'Unanswered',
+
+  sortOptions: {
+    newest: {
+      placeholder: 'Newest',
+      params: 'createdAt:desc'
+    },
+    unanswered: {
+      placeholder: 'Unanswered',
+      params: 'unanswered:desc,createdAt:desc'
+    }
+  },
+
+  sortParam: Ember.computed('sortOptions', 'sortOption', function() {
+    return this.get('sortOptions')[this.get('sortOption').toLowerCase()].params.split(',');
+  }),
+
+
+  sortedQuestions: Ember.computed.sort('model', 'sortParam'),
 
   actions: {
-    /***** selectParam action is removed because {{action (mut sortParam)}} handles it for us *****/
-    // selectParam(param) {
-    //   this.set('sortParam', param);
-    // },
-  }
+  },
+
 });

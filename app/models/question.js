@@ -13,8 +13,8 @@ export default DS.Model.extend({
     return moment(this.get('createdAt')).format('MM/DD/YYYY');
   }),
 
-  textPreview: Ember.computed('text', function() {
-    return this.get('text').split(' ').slice(0, 50).join(' ');
+  unanswered: Ember.computed('answers.length', function() {
+    return this.get('answers.length') === 0;
   }),
 
 });
