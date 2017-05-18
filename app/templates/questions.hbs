@@ -8,7 +8,7 @@
       <li class="nav__menu-item">{{#link-to "questions.list"}}VIEW ALL{{/link-to}}</li>
       <li class="nav__menu-item">{{#link-to "questions.new"}}NEW QUESTION{{/link-to}}</li>
       <li class="nav__menu-item">
-        <form class="search-bar">
+        <form class="search-bar" {{action 'searchAll' on="submit"}}>
           {{input type="search" value=searchTerm placeholder="Search questions"}}
           <button type="submit"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png" alt="Search Icon"></button>
         </form>

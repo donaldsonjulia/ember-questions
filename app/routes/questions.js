@@ -10,4 +10,6 @@ export default Ember.Route.extend({
       controller.set('mobileMenuHidden', true);
   },
 
+
+
 });
