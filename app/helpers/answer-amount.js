@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function answerAmount(length) {
+export function answerAmount([length]) {
   if (length === 1) {
     return 'ANSWER';
   } else {
