@@ -7,7 +7,8 @@
     <legend>ASK A NEW QUESTION:</legend>
     {{input type="text" placeholder="Your name" value=author}}
     {{input type="text" placeholder="Subject" value=subject}}
-    {{textarea placeholder="Question" value=text rows=6}}
+    <!-- {{textarea placeholder="Question" value=text rows=6}} -->
+    {{simditor-editor value=textObj update=(action (mut textObj.content)) editor=(mut editor) onValuechanged=(action "valuechanged") }}
   </fieldset>
   <button type="submit" disabled={{questionFormInvalid}}>SUBMIT</button>
 </form>
