@@ -2,7 +2,7 @@
   <fieldset>
     <legend>POST AN ANSWER:</legend>
     {{input type="text" placeholder="Your name" value=author}}
-    {{textarea placeholder="Answer" value=text rows=6}}
+    {{simditor-editor value=textObj update=(action (mut textObj.content)) editor=(mut editor)}}
   </fieldset>
   <button type="submit" disabled={{formIncomplete}}>SUBMIT</button>
 </form>

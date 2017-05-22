@@ -6,23 +6,27 @@ export default Ember.Component.extend({
 
   question: null,
   author: '',
-  text: '',
+  textObj: {
+    content: null
+  },
   "on-submit": null,
 
-  formIncomplete: Ember.computed.empty('author') && Ember.computed.empty('text'),
+  formIncomplete: Ember.computed.empty('author') || Ember.computed.empty('textObj.content'),
 
   actions: {
     postAnswer() {
       let question = this.get('question');
       let author = this.get('author');
-      let text = this.get('text');
+      let text = this.get('textObj.content');
       this.get('on-submit')({
         question: question,
         author: author,
         text: text
       });
       this.set('author', '');
-      this.set('text', '');
+      this.set('textObj', {
+        content: null
+      });
     }
   }
 });
