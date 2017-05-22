@@ -13,7 +13,7 @@ export default Ember.Route.extend({
   actions: {
     searchAll() {
       let searchTerm = this.get('controller').get('searchTerm');
-      console.log(searchTerm);
+  
     },
     willTransition() {
       this.get('controller').set('mobileMenuHidden', true);
