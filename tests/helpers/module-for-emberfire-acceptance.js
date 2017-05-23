@@ -1,9 +1,9 @@
-import moduleForAcceptance from 'questions/tests/helpers/module-for-emberfire-acceptance';
+import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
 
-import createOfflineRef from 'emberfire/test-support/helpers/create-offline-ref';
-import replaceAppRef from 'emberfire/test-support/helpers/replace-app-ref';
-import stubFirebase from 'emberfire/test-support/helpers/stub-firebase';
-import unstubFirebase from 'emberfire/test-support/helpers/unstub-firebase';
+import createOfflineRef from 'questions/tests/helpers/emberfire/create-offline-ref';
+import replaceAppRef from 'questions/tests/helpers/emberfire/replace-app-ref';
+import stubFirebase from 'questions/tests/helpers/emberfire/stub-firebase';
+import unstubFirebase from 'questions/tests/helpers/emberfire/unstub-firebase';
 
 export default function(name, options = {}) {
   let fixtureData = options.fixtureData || {};

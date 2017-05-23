@@ -12,6 +12,6 @@ test('visiting questions route should display all questions', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/questions/list');
-
+    assert.equal(find('.question-table__question-row').length, 4);
   });
 });
