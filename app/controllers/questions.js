@@ -23,6 +23,10 @@ export default Ember.Controller.extend({
       this.toggleProperty('mobileMenuHidden');
     },
 
+    searchAll() {
+
+    },
+
 
 
   }

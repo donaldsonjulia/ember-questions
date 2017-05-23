@@ -1,8 +1,10 @@
 import { test } from 'qunit';
-import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
+import moduleForEmberfireAcceptance from 'questions/tests/helpers/module-for-emberfire-acceptance';
+import FIREBASE_FIXTURE_DATA from 'questions/tests/fixtures/firebase/fixture-data';
 
-
-moduleForAcceptance('Acceptance | questions');
+moduleForEmberfireAcceptance('Acceptance | questions', {
+  fixtureData: FIREBASE_FIXTURE_DATA
+});
 
 test('visiting questions route should display all questions', function(assert) {
 
