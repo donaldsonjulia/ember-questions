@@ -38,7 +38,7 @@ test('displays questions correctly', function(assert) {
 
     assert.equal(find('.question-table__question-row:last .question-table__question-data--answers').text().trim(), '1ANSWER', 'last question, with 1 answer, displays correct amount of answers');
 
-    assert.equal(find('.question-table__question-row:first .date').text().trim(), '05/20/2017');
+    assert.equal(find('.question-table__question-row:first .date').text().trim(), '05/20/2017', 'displays correctly formatted date');
 
   });
 

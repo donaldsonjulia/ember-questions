@@ -10,7 +10,7 @@ export default DS.Model.extend({
   answers: DS.hasMany('answer'),
 
   formattedDate: Ember.computed('createdAt', function() {
-    return moment(this.get('createdAt')).format('MM/DD/YYYY');
+    return moment.utc(this.get('createdAt')).format('MM/DD/YYYY');
   }),
 
   unanswered: Ember.computed('answers.length', function() {
