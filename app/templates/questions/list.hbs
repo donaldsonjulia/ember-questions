@@ -27,12 +27,12 @@
           </td>
           <td class="question-table__question-data question-table__question-data--subject">
               <h3>
-                {{#link-to "questions.question" question}}
+                {{#link-to "questions.question" question class="question-table__question-link"}}
                   {{question.subject}}
                 {{/link-to}}
               </h3>
           </td>
-          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author">{{question.author}}</span> on {{question.formattedDate}}</p></td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author">{{question.author}}</span> on <span class="date">{{question.formattedDate}}</span></p></td>
         </tr>
   {{/each}}
 </table>
