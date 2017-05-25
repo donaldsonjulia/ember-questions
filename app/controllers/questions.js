@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   mobileMenuHidden: true,
 
 // search input value on navigation bar for searchAll action on 'questions' route
-  searchTerm: '',
+  // searchTerm: '',
 
 
 

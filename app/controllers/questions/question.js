@@ -2,8 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-
-
   actions: {
     createAnswer(params) {
       let question = params.question;
@@ -17,9 +15,7 @@ export default Ember.Controller.extend({
         question: question
       });
 
-      newAnswer.save().then(() => {
-        return question.save();
-      });
+      return newAnswer.save();
     }
   }
 

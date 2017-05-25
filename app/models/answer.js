@@ -10,7 +10,7 @@ export default DS.Model.extend({
   question: DS.belongsTo('question'),
 
   formattedDate: Ember.computed('createdAt', function() {
-    return moment(this.get('createdAt')).format('MM/DD/YYYY [at] h:mm a ');
+    return moment.utc(this.get('createdAt')).format('MM/DD/YYYY [at] h:mm a ');
   }),
 
 });

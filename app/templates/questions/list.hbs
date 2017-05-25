@@ -6,9 +6,9 @@
   <div class="question-toolbar__sort-params-select">
     <label>sort by:</label>
     <select onchange={{action (mut sortOption) value="target.value"}}>
-      {{#each-in sortOptions as |sortChoice choiceProps|}}
-        <option value={{paramChoice}} selected={{eq sortOption choiceProps.placeholder}}>{{choiceProps.placeholder}}</option>
-      {{/each-in}}
+      {{#each sortOptions as |option|}}
+        <option value={{option.id}} selected={{eq sortOption option.id}}>{{option.placeholder}}</option>
+      {{/each}}
     </select>
   </div>
 </div>

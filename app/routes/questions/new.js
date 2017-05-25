@@ -16,8 +16,7 @@ export default Ember.Route.extend({
         author: author,
         createdAt: new Date(),
         subject: subject,
-        text: text,
-        answers: []
+        text: text
       });
 
       newQuestion.save().then(() => {
