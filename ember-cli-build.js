@@ -3,11 +3,10 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    'ember-cli-babel': {
+      includePolyfill: true
+    }
   });
-
-  app.import('bower_components/prism/prism.js');
-  app.import('bower_components/prism/themes/prism.css');
 
 
   return app.toTree();

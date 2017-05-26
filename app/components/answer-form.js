@@ -45,7 +45,9 @@ export default Ember.Component.extend({
         this.set('textObj', {
           content: null
         });
-      }).catch(error => this.set('error', error));
+      }).catch((error) => {
+        this.set('error', error)
+      });
     }
 
   }

@@ -1,5 +1,6 @@
 import { test } from 'qunit';
 import moduleForEmberfireAcceptance from 'questions/tests/helpers/module-for-emberfire-acceptance';
+import testSelector from 'ember-test-selectors';
 import FIREBASE_FIXTURE_DATA from 'questions/tests/fixtures/firebase/fixture-data';
 
 moduleForEmberfireAcceptance('Acceptance | questions', {
@@ -9,43 +10,49 @@ moduleForEmberfireAcceptance('Acceptance | questions', {
 test('questions route should display all questions', function(assert) {
   visit('/questions');
 
+  /* NOTE:this test will need to be re-written after implementing pagination */
+
   andThen(function() {
     assert.equal(currentURL(), '/questions/list', 'questions route automatically redirects to list view');
-    assert.equal(find('.question-table__question-row').length, 4, 'displays correct amount of questions');
+    assert.equal(find(testSelector('list-question-id')).length, 4, 'displays correct amount of questions');
   });
 });
 
-test('can sort question list using select', function(assert) {
+test('initially displays questions sorted by newest unanswered questions first', function(assert) {
   visit('/questions/list');
 
   andThen(function() {
-    assert.equal(find('.question-table__question-row:first .question-table__question-link').text().trim(), 'Newest unanswered question', 'initially displays the most recent unanswered question first');
+    assert.equal(find(testSelector('list-question-id'))[0], find(testSelector('list-question-id', '-Kkhzzl1N3bYRiYQ-l3Z'))[0], 'displays the most recent unanswered question first by default');
   });
 
-  fillIn('select', 'Newest');
+});
+
+test('can sort question list by different params using select', function(assert) {
+  visit('/questions/list');
+
+  fillIn(testSelector('list-sort-select'), 'newest');
 
   andThen(function() {
-    assert.equal(find('.question-table__question-row:first .question-table__question-link').text().trim(), 'Newest question', 'displays the newest question first when sorting by newest');
+    assert.equal(find(testSelector('list-question-id'))[0], find(testSelector('list-question-id', '-KkSpzGeeqJAROQtp47U'))[0], 'displays newest question first after sorting by newest');
   });
+
 });
+
 
 test('displays questions correctly', function(assert) {
   visit('/questions/list');
 
   andThen(function() {
 
-    assert.equal(find('.question-table__question-row:first .question-table__question-data--answers').text().trim(), 'NEEDS ANSWER', 'first question, unanswered, displays needs-answer alert');
+    assert.equal(find(testSelector('list-answer-amount-for', '-Kkhzzl1N3bYRiYQ-l3Z')).text().trim(), 'NEEDS ANSWER', 'unanswered question displays needs-answer alert');
 
-    assert.equal(find('.question-table__question-row:last .question-table__question-data--answers').text().trim(), '1ANSWER', 'last question, with 1 answer, displays correct amount of answers');
+    assert.equal(find(testSelector('list-answer-amount-for', '-Kjp2GlyLdc-elD_-jpi')).text().trim(), '1ANSWER', 'question with 1 answer displays correct answer amount and suffix');
 
-    assert.equal(find('.question-table__question-row:first .date').text().trim(), '05/20/2017', 'displays correctly formatted date');
+    assert.equal(find(testSelector('list-answer-amount-for', '-KkSpzGeeqJAROQtp47U')).text().trim(), '3ANSWERS', 'question with 3 answers displays correct answer amount and suffix');
 
-  });
+    assert.equal(find(testSelector('list-author-for', '-KkSpzGeeqJAROQtp47U')).text().trim(), 'Lucia', 'displays correct author name');
 
-  fillIn('select', 'Newest');
-
-  andThen(function() {
-    assert.equal(find('.question-table__question-row:first .question-table__question-data--answers').text().trim(), '3ANSWERS', 'first question, with 3 answers, displays correct amount of answers');
+    assert.equal(find(testSelector('list-formatted-date-for', '-KkSpzGeeqJAROQtp47U')).text().trim(), '05/23/2017', 'displays correctly formatted date');
 
   });
 
