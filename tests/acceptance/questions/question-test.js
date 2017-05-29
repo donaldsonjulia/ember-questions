@@ -1,5 +1,6 @@
 
 import { test } from 'qunit';
+import Ember from 'ember';
 import moduleForEmberfireAcceptance from 'questions/tests/helpers/module-for-emberfire-acceptance';
 import testSelector from 'ember-test-selectors';
 import FIREBASE_FIXTURE_DATA from 'questions/tests/fixtures/firebase/fixture-data';
@@ -23,11 +24,12 @@ test('can post answer', function(assert) {
   let author = 'Lucia';
   // let text = "<p>Here is a possible solution:</p><pre><code class=\"lang-js\">this.answer = 'my answer';</code></pre><p>I hope that answers your question.</p>";
 
-  let text = 'This is a test answer';
+  let text = '<p>This is a test answer</p>';
 
   visit('/questions/question/' + questionID);
   fillIn(testSelector('author-input'), author);
-  fillIn('textarea', text);
+
+  //CANNOT GET THIS TO WORK
 
   return pauseTest();
 
