@@ -1,5 +1,17 @@
 .new-question-form {
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
   @include grid-column(8);
   @include grid-shift(2);
-  margin: 10px 0;
+}
+
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  button {
+    float: right;
+    margin-top: 1em;
+  }
+
 }

@@ -2,15 +2,31 @@
 $medium-screen: 600px;
 $large-screen: 900px;
 
+//Grids (Neat)
+$single-grid: (
+  columns: 1,
+  gutter: 20px
+);
+
+$medium-up-grid: (
+  columns: 12,
+  gutter: 20px,
+  media: "(min-width: 600px)"
+);
+
+
 // Typography
-$base-font-family: 'Open Sans', sans-serif;
-$heading-font-family: $base-font-family;
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+$base-font-family: 'Karla', sans-serif;
+$heading-font-family: 'Roboto Condensed', sans-serif;
 
 // Font Sizes
 $base-font-size: 1em;
+$heading-font-size: 1.2em;
 
 // Line height
-$base-line-height: 1.7;
+$base-line-height: 1.5;
 $heading-line-height: 1.2;
 
 // Other Sizes
@@ -24,10 +40,17 @@ $blue: #1565c0;
 $dark-gray: #3e3e3e;
 $medium-gray: #999;
 $light-gray: #ddd;
+$coral: #e77563;
+$theme-color: #9dd2e2;
+
+$alert-color: #fff6bf;
+$error-color: #fbe3e4;
+$notice-color: #e5edf8;
+$success-color: #e6efc2;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $coral;
 
 // Border
 $base-border-color: $light-gray;

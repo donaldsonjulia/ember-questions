@@ -10,25 +10,24 @@ export default Ember.Route.extend({
       let controller = this.get('controller');
       let author = controller.get('author');
       let subject = controller.get('subject');
-      let text = controller.get('text');
+      let text = controller.get('textObj.content');
 
       let newQuestion = this.store.createRecord('question', {
         author: author,
         createdAt: new Date(),
         subject: subject,
-        text: text,
-        answers: []
+        text: text
       });
 
       newQuestion.save().then(() => {
         controller.set('author', '');
         controller.set('subject', '');
-        controller.set('text', '');
+        controller.set('textObj.content', null);
 
         this.transitionTo('questions.list');
       });
     },
 
-
   }
+
 });

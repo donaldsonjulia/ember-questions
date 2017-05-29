@@ -1,11 +1,14 @@
+<div class="route-header">
+  <h1 class="route-header__title">ASK A QUESTION</h1>
+</div>
 
 <form class="new-question-form" {{action "createQuestion" on="submit"}}>
   <fieldset>
-    <legend>Ask a new question:</legend>
+    <legend>ASK A NEW QUESTION:</legend>
     {{input type="text" placeholder="Your name" value=author}}
     {{input type="text" placeholder="Subject" value=subject}}
-    {{textarea placeholder="Question" value=text rows=6}}
+    {{simditor-editor value=textObj update=(action (mut textObj.content)) editor=(mut editor)}}
   </fieldset>
-  <button type="submit">Submit</button>
+  <button type="submit" disabled={{questionFormInvalid}}>SUBMIT</button>
 </form>
 {{outlet}}

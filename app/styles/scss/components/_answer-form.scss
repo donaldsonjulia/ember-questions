@@ -1,5 +1,16 @@
 .answer-form {
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
   @include grid-column(10);
   @include grid-shift(1);
+ }
+
   margin-top: 1em;
+  margin-bottom: 1em;
+
+  button {
+    float: right;
+    margin-top: 1em;
+  }
 }

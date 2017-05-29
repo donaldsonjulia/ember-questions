@@ -1,7 +1,37 @@
-{{#each model as |questionObj|}}
-  {{#link-to "questions.question" questionObj}}
-    {{question-preview question=questionObj}}
-  {{/link-to}}
-{{/each}}
+<div class="route-header">
+  <h1 class="route-header__title">ALL QUESTIONS</h1>
+</div>
+
+<div class="question-toolbar">
+  <div class="question-toolbar__sort-params-select">
+    <label>sort by:</label>
+    <select data-test-sort-select onchange={{action (mut sortOption) value="target.value"}}>
+      {{#each sortOptions as |option|}}
+        <option value={{option.id}} selected={{eq sortOption option.id}}>{{option.placeholder}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+
+<table class="question-table">
+  {{#each sortedQuestions as |question|}}
+        <tr data-test-question-id={{question.id}} class="question-table__question-row">
+          <td class="question-table__question-data question-table__question-data--answers">
+              <div class="answers" data-test-answer-amount-for={{question.id}}>
+                {{answer-amount question.answers.length}}
+              </div>
+          </td>
+          <td class="question-table__question-data question-table__question-data--subject">
+              <h3>
+                {{#link-to "questions.question" question class="question-table__question-link" data-test-subject-link-for=question.id}}
+                  {{question.subject}}
+                {{/link-to}}
+              </h3>
+          </td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author" data-test-author-for={{question.id}}>{{question.author}}</span> on <span class="date" data-test-formatted-date-for={{question.id}}>{{question.formattedDate}}</span></p></td>
+        </tr>
+  {{/each}}
+</table>
+
 
 {{outlet}}

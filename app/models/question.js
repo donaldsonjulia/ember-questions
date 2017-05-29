@@ -10,11 +10,11 @@ export default DS.Model.extend({
   answers: DS.hasMany('answer'),
 
   formattedDate: Ember.computed('createdAt', function() {
-    return moment(this.get('createdAt')).format('MM/DD/YYYY');
+    return moment.utc(this.get('createdAt')).format('MM/DD/YYYY');
   }),
 
-  textPreview: Ember.computed('text', function() {
-    return this.get('text').split(' ').slice(0, 50).join(' ');
+  unanswered: Ember.computed('answers.length', function() {
+    return this.get('answers.length') === 0;
   }),
 
 });

@@ -1,16 +1,15 @@
-{{question-block question=model}}
+{{question-block question=model data-test-question-id=model.id}}
 <div class="question-answers">
   {{#if model.answers}}
     <ul>
       {{#each model.answers as |answer|}}
-        <li class="question-answers__answer">
-          <h6>Reply from {{answer.author}}:</h6>
-          <p>{{answer.text}}</p>
-        </li>
+        {{c-comment comment=answer data-test-answer=answer.id}}
       {{/each}}
     </ul>
   {{else}}
-    <p class="question-answers__message">No answers yet.</p>
+    <div class="flash-alert">
+      <span>No answers yet.</span>
+    </div>
   {{/if}}
 </div>
-{{answer-form question=model onSubmit="createAnswer"}}
+{{answer-form question=model on-submit=(action "createAnswer")}}

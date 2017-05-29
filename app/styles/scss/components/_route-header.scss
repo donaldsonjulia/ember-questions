@@ -1,0 +1,18 @@
+
+.route-header {
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
+  @include grid-column(11);
+  @include grid-shift(.5);
+  }
+
+  background: $secondary-background-color;
+  margin-bottom: 1em;
+  padding: .8em;
+
+  &__title {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}

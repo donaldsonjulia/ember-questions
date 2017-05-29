@@ -1,0 +1,118 @@
+.nav {
+  align-items: center;
+  background: $base-background-color;
+  border-bottom: $base-border;
+  display: flex;
+  height: 4em;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  padding: 0;
+  position: relative;
+
+  &__logo {
+    font-family: $heading-font-family;
+    font-size: 1.3em;
+    margin-left: 20px;
+  }
+
+  &__menu-icon {
+    margin-right: 20px;
+
+    button {
+    color: $base-font-color;
+    background: transparent;
+    padding: 3px;
+    }
+
+    @media screen and (min-width: 800px) {
+      display: none;
+    }
+  }
+
+
+
+  &__menu {
+    background: $base-background-color;
+    margin-right: 20px;
+
+
+    @media screen and (max-width: 800px) {
+      border-bottom: $base-border;
+      box-shadow: 0 2px 4px $light-gray;
+      position: absolute;
+      top: 4em;
+      width: 100%;
+      z-index: 1;
+    }
+
+  }
+
+  &__menu--is-hidden {
+    display: none;
+
+    @media screen and (min-width: 800px) {
+      display: block;
+    }
+  }
+
+  &__menu-item {
+    background-color: $base-background-color;
+    display: block;
+    margin: 30px 0;
+    text-align: center;
+
+    @media screen and (min-width: 800px) {
+      display: inline;
+      margin-left: 20px;
+    }
+
+    a {
+      color: $base-font-color;
+      font-family: $heading-font-family;
+      &:hover {
+        color: $action-color;
+      }
+    }
+  }
+
+}
+
+
+
+form.search-bar {
+
+  $search-bar-border-color: $base-border-color;
+  $search-bar-border: 1px solid $search-bar-border-color;
+  $search-bar-background: lighten($search-bar-border-color, 10%);
+
+  position: relative;
+  display: inline-block;
+
+  input[type=search] {
+    appearance: none;
+    background-color: white;
+    border: 1px solid $base-border-color;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1em;
+    font-style: italic;
+    margin: 0;
+    min-width: 275px;
+    padding: ($base-spacing / 3) ($base-spacing / 3);
+    position: relative;
+    transition: border-color;
+    width: 100%;
+
+  }
+
+  button[type=submit] {
+    @include position(absolute, 0 0 0 null);
+    outline: none;
+    padding: 5px 10px;
+
+    img {
+      height: 12px;
+      opacity: 0.7;
+    }
+  }
+}

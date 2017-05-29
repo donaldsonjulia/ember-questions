@@ -1,0 +1,14 @@
+.question-toolbar {
+
+
+  &__sort-params-select {
+    @include grid-column(1, $single-grid);
+
+    @include grid-media($medium-up-grid) {
+    @include grid-column(3);
+    @include grid-shift(8);
+    }
+
+  }
+
+}

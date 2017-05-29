@@ -12,10 +12,10 @@ h4,
 h5,
 h6 {
   font-family: $heading-font-family;
-  font-size: $base-font-size;
-  font-weight: 600;
+  font-size: $heading-font-size;
+  font-weight: normal;
   line-height: $heading-line-height;
-  margin: $small-spacing 0;
+  margin: 0;
 }
 
 p {
@@ -30,7 +30,7 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    // color: shade($action-color, 15%);
   }
 }
 

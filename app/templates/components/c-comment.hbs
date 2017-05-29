@@ -1,0 +1,10 @@
+
+  <div class="c-comment__image">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png">
+  </div>
+  <div class="c-comment__content">
+    <h1>{{comment.author}} says:</h1>
+    <p>{{display-text comment.text}}</p>
+    {{yield}}
+    <p class="c-comment__detail">posted on {{comment.formattedDate}}</p>
+  </div>
