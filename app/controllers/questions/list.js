@@ -6,6 +6,10 @@ const {
 
 export default Ember.Controller.extend({
 
+  queryParams: {
+    sortOption: 'sort',
+  },
+
   sortOption: 'unanswered',
 
   sortOptions: computed(function() {

@@ -6,6 +6,8 @@ export default Ember.Route.extend({
     return this.store.findAll('question');
   },
 
+  /*TODO: refactor nav/menu completely to avoid rigged-up CSS hack for smaller screen widths*/
+  
   resetController(controller) {
       controller.set('mobileMenuHidden', true);
   },
@@ -13,7 +15,7 @@ export default Ember.Route.extend({
   actions: {
     searchAll() {
       let searchTerm = this.get('controller').get('searchTerm');
-  
+
     },
     willTransition() {
       this.get('controller').set('mobileMenuHidden', true);

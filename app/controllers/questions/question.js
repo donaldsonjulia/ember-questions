@@ -1,12 +1,15 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 export default Ember.Controller.extend({
 
+  saveAnswer: task(function * (question, answer) {
+    yield answer.save();
+    return yield question.save();
+  }),
+
   actions: {
-    createAnswer(params) {
-      let question = params.question;
-      let author = params.author;
-      let text = params.text;
+    createAnswer({ question, author, text }) {
 
       let newAnswer = this.store.createRecord('answer', {
         author: author,
@@ -15,7 +18,8 @@ export default Ember.Controller.extend({
         question: question
       });
 
-      return newAnswer.save();
+      return this.get('saveAnswer').perform(question, newAnswer);
+
     }
   }
 
