@@ -59,7 +59,7 @@ export default {
         "-Kki21Po0OCKuHr9DIZS": true,
         "-Kki2JQ7zgxv-5e9TAnx": true
       },
-      "author": "Julia",
+      "author": "Lucia",
       "createdAt": "2017-05-23T23:15:11.133Z",
       "subject": "Newest question",
       "text": "<p>This test question has 3 answers.</p>"

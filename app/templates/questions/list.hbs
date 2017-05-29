@@ -5,7 +5,7 @@
 <div class="question-toolbar">
   <div class="question-toolbar__sort-params-select">
     <label>sort by:</label>
-    <select onchange={{action (mut sortOption) value="target.value"}}>
+    <select data-test-sort-select onchange={{action (mut sortOption) value="target.value"}}>
       {{#each sortOptions as |option|}}
         <option value={{option.id}} selected={{eq sortOption option.id}}>{{option.placeholder}}</option>
       {{/each}}
@@ -15,24 +15,20 @@
 
 <table class="question-table">
   {{#each sortedQuestions as |question|}}
-        <tr class="question-table__question-row">
+        <tr data-test-question-id={{question.id}} class="question-table__question-row">
           <td class="question-table__question-data question-table__question-data--answers">
-              <div class="answers">
-                {{#if question.answers}}
-                  <span class="answers-number">{{question.answers.length}}</span><span class="has-answers">{{answer-amount question.answers.length}}</span>
-                {{else}}
-                  <span class="no-answers">NEEDS ANSWER</span>
-                {{/if}}
+              <div class="answers" data-test-answer-amount-for={{question.id}}>
+                {{answer-amount question.answers.length}}
               </div>
           </td>
           <td class="question-table__question-data question-table__question-data--subject">
               <h3>
-                {{#link-to "questions.question" question class="question-table__question-link"}}
+                {{#link-to "questions.question" question class="question-table__question-link" data-test-subject-link-for=question.id}}
                   {{question.subject}}
                 {{/link-to}}
               </h3>
           </td>
-          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author">{{question.author}}</span> on <span class="date">{{question.formattedDate}}</span></p></td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author" data-test-author-for={{question.id}}>{{question.author}}</span> on <span class="date" data-test-formatted-date-for={{question.id}}>{{question.formattedDate}}</span></p></td>
         </tr>
   {{/each}}
 </table>

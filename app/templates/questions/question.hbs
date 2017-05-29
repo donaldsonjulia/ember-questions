@@ -1,9 +1,9 @@
-{{question-block question=model}}
+{{question-block question=model data-test-question-id=model.id}}
 <div class="question-answers">
   {{#if model.answers}}
     <ul>
       {{#each model.answers as |answer|}}
-        {{c-comment comment=answer}}
+        {{c-comment comment=answer data-test-answer=answer.id}}
       {{/each}}
     </ul>
   {{else}}
