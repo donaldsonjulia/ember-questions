@@ -7,7 +7,6 @@ const {
 
 export default Ember.Component.extend({
 
-  tagName: 'div',
   classNames: ['answer-form'],
 
   init() {
@@ -20,7 +19,7 @@ export default Ember.Component.extend({
 
   question: null,
   author: '',
-  "on-submit": null,
+  'on-submit': null,
 
   formIncomplete: computed('author', 'textObj.content', function() {
     let author = this.get('author');
@@ -36,14 +35,15 @@ export default Ember.Component.extend({
       let text = this.get('textObj.content');
 
       this.get('on-submit')({
-        question: question,
-        author: author,
-        text: text
+        question,
+        author,
+        text
       }).then(() => {
-        question.save();
-        this.set('author', '');
-        this.set('textObj', {
-          content: null
+        this.setProperties({
+          author: '',
+          textObj: {
+            content: null
+          }
         });
       }).catch((error) => {
         this.set('error', error)
