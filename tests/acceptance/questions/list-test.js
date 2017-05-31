@@ -14,16 +14,16 @@ test('questions route should display all questions', function(assert) {
   visit('/questions');
 
   andThen(function() {
-    assert.equal(currentURL(), '/questions/list', 'questions route automatically redirects to list view');
+    assert.equal(currentURL().split('?')[0], '/questions/list', 'questions route automatically redirects to list view');   //removed all sort-by query params from URL for this test
     assert.equal(find(testSelector('question-id')).length, 4, 'displays correct amount of questions');
   });
 });
 
-test('initially displays questions sorted by newest unanswered questions first', function(assert) {
+test('initially displays questions sorted by newest questions first', function(assert) {
   visit('/questions/list');
 
   andThen(function() {
-    assert.equal(find(testSelector('question-id'))[0], find(testSelector('question-id', '-Kkhzzl1N3bYRiYQ-l3Z'))[0], 'displays the most recent unanswered question first by default');
+    assert.equal(find(testSelector('question-id'))[0], find(testSelector('question-id', '-KkSpzGeeqJAROQtp47U'))[0], 'displays the most recent question first by default');
   });
 
 });
@@ -31,10 +31,11 @@ test('initially displays questions sorted by newest unanswered questions first',
 test('can sort question list by different params using select', function(assert) {
   visit('/questions/list');
 
-  fillIn(testSelector('sort-select'), 'newest');
+  fillIn(testSelector('sort-select'), 'unanswered:desc,createdAt:desc');
 
   andThen(function() {
-    assert.equal(find(testSelector('question-id'))[0], find(testSelector('question-id', '-KkSpzGeeqJAROQtp47U'))[0], 'displays newest question first after sorting by newest');
+    assert.equal(currentURL(), '/questions/list?sort=unanswered%3Adesc%2CcreatedAt%3Adesc', 'url updates with newly defined query params for sort');
+    assert.equal(find(testSelector('question-id'))[0], find(testSelector('question-id', '-Kkhzzl1N3bYRiYQ-l3Z'))[0], 'displays newest unanswered question first after sorting by unanswered');
   });
 
 });

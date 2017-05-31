@@ -6,39 +6,16 @@ const {
 
 export default Ember.Controller.extend({
 
-  queryParams: {
-    sortOption: 'sort',
-  },
+  queryParams: ['sort'],
 
-  sortOption: 'unanswered',
+  sort: null,
 
-  sortOptions: computed(function() {
-    return [
-      {
-        id: 'newest',
-        placeholder: 'Newest',
-        params: ['createdAt:desc']
-      },
-      {
-        id: 'unanswered',
-        placeholder: 'Unanswered',
-        params: ['unanswered:desc', 'createdAt:desc']
-      }
-    ];
+  sortParams: computed('sort', function() {
+    let sort = this.get('sort') || 'createdAt:desc';
+    return sort.split(',');
   }),
 
-  currentOption: computed('sortOptions.@each.id', 'sortOption', function() {
-    let sortOptions = this.get('sortOptions');
-    let sortOption = this.get('sortOption');
-
-    return sortOptions.findBy('id', sortOption);
-  }),
-
-  sortParam: computed.readOnly('currentOption.params'),
-
-  sortedQuestions: computed.sort('model', 'sortParam'),
-
-  searchTerm: '',
+  sortedQuestions: computed.sort('model', 'sortParams'),
 
   actions: {
   },
