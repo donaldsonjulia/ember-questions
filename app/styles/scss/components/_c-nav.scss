@@ -7,75 +7,92 @@
   justify-content: space-between;
   margin-bottom: 2em;
   padding: 0;
-  position: relative;
+
 
   &__logo {
     font-family: $heading-font-family;
     font-size: 1.3em;
     margin-left: 20px;
+
   }
-
-  &__menu-icon {
-    margin-right: 20px;
-
-    button {
-    color: $base-font-color;
-    background: transparent;
-    padding: 3px;
-    }
-
-    @media screen and (min-width: 800px) {
-      display: none;
-    }
-  }
-
-
 
   &__menu {
     background: $base-background-color;
     margin-right: 20px;
-
-
-    @media screen and (max-width: 800px) {
-      border-bottom: $base-border;
-      box-shadow: 0 2px 4px $light-gray;
-      position: absolute;
-      top: 4em;
-      width: 100%;
-      z-index: 1;
-    }
-
   }
 
-  &__menu--is-hidden {
-    display: none;
-
-    @media screen and (min-width: 800px) {
-      display: block;
-    }
-  }
 
   &__menu-item {
     background-color: $base-background-color;
+    color: $base-font-color;
     display: block;
+    font-family: $heading-font-family;
     margin: 30px 0;
     text-align: center;
+
+    &:hover {
+      color: $action-color;
+    }
 
     @media screen and (min-width: 800px) {
       display: inline;
       margin-left: 20px;
     }
 
-    a {
-      color: $base-font-color;
-      font-family: $heading-font-family;
-      &:hover {
-        color: $action-color;
-      }
-    }
   }
 
 }
+
+
+.mobile-nav {
+
+  &__menu-icon {
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: 20px;
+    color: $base-font-color;
+    background: transparent;
+    padding: 3px;
+
+    &:hover {
+      background: transparent;
+      color: $action-color;
+    }
+  }
+
+  &__inner {
+
+  }
+
+  &__link {
+    color: #fff;
+    display: block;
+    font-family: $heading-font-family;
+    font-size: 1.1em;
+    margin: 20px;
+    padding: 15px;
+    text-align: center;
+
+    &:hover {
+      color: $base-font-color;
+    }
+  }
+}
+
+
+.ember-modal-dialog {
+  background-color: $theme-color;
+  height: 100vh;
+  width: 65%;
+}
+
+.ember-modal-overlay {
+  background-color: rgba(0,0,0,.2);
+}
+
+
+
+
 
 
 

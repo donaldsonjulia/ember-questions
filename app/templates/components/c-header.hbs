@@ -1,0 +1,45 @@
+<header>
+  <nav class="nav">
+    <div class="nav__logo">
+      {{#link-to "questions.index"}}EMBER Q&A{{/link-to}}
+    </div>
+
+    {{#if media.isMobile}}
+
+      <!-- <div class="mobile-nav__menu-icon"> -->
+        <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">☰</button>
+      <!-- </div> -->
+
+      {{#if isShowingNav}}
+
+        {{#tether-dialog close=(action (mut isShowingNav) false)
+          attachment='top right'
+          targetAttachment='top right'}}
+
+          <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
+              {{#link-to "questions.list" class="mobile-nav__link"}}VIEW ALL{{/link-to}}
+              {{#link-to "questions.new" class="mobile-nav__link"}}NEW QUESTION{{/link-to}}
+          </div>
+
+        {{/tether-dialog}}
+
+      {{/if}}
+
+      {{else}}
+
+      <div class="nav__menu">
+        {{#link-to "questions.list" class="nav__menu-item"}}VIEW ALL{{/link-to}}
+        {{#link-to "questions.new" class="nav__menu-item"}}NEW QUESTION{{/link-to}}
+        <div class="nav__menu-item">
+          <form class="search-bar" {{action 'searchAll' on="submit"}}>
+            {{input type="search" value=searchTerm placeholder="Search questions"}}
+            <button type="submit"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png" alt="Search Icon"></button>
+          </form>
+        </div>
+      </div>
+
+    {{/if}}
+
+
+  </nav>
+</header>
