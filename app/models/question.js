@@ -2,6 +2,11 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import moment from 'moment';
 
+const {
+  computed
+} = Ember;
+
+
 export default DS.Model.extend({
   author: DS.attr('string'),
   createdAt: DS.attr('date'),
@@ -9,11 +14,11 @@ export default DS.Model.extend({
   text: DS.attr('string'),
   answers: DS.hasMany('answer'),
 
-  formattedDate: Ember.computed('createdAt', function() {
+  formattedDate: computed('createdAt', function() {
     return moment.utc(this.get('createdAt')).format('MM/DD/YYYY');
   }),
 
-  unanswered: Ember.computed('answers.length', function() {
+  unanswered: computed('answers.length', function() {
     return this.get('answers.length') === 0;
   }),
 

@@ -5,10 +5,10 @@
 <div class="question-toolbar">
   <div class="question-toolbar__sort-params-select">
     <label>sort by:</label>
-    <select data-test-sort-select onchange={{action (mut sortOption) value="target.value"}}>
-      {{#each sortOptions as |option|}}
-        <option value={{option.id}} selected={{eq sortOption option.id}}>{{option.placeholder}}</option>
-      {{/each}}
+    <select data-test-sort-select onchange={{action (mut sort) value="target.value"}}>
+      <option value="createdAt:desc" selected={{eq sort "createdAt:desc"}}>Newest</option>
+      <option value="unanswered:desc,createdAt:desc" selected={{eq sort "unanswered:desc,createdAt:desc"}}>Unanswered</option>
+      <option value="author:asc,createdAt:desc" selected={{eq sort value}}>Author</option>
     </select>
   </div>
 </div>

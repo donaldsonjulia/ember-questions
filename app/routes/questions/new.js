@@ -24,7 +24,7 @@ export default Ember.Route.extend({
         controller.set('subject', '');
         controller.set('textObj.content', null);
 
-        this.transitionTo('questions.list');
+        this.transitionTo('questions.list', { queryParams: { sort:'createdAt:desc'} });
       });
     },
 
