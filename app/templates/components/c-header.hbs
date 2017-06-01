@@ -18,8 +18,11 @@
         }}
 
           <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
-            {{#link-to "questions.list" class="mobile-nav__link"}}VIEW ALL{{/link-to}}
-            {{#link-to "questions.new" class="mobile-nav__link"}}NEW QUESTION{{/link-to}}
+
+            {{yield (hash
+              link-to=(component 'link-to' class='mobile-nav__link')
+            )}}
+
           </div>
 
         {{/modal-dialog}}
@@ -29,14 +32,17 @@
       {{else}}
 
       <div class="nav__menu">
-        {{#link-to "questions.list" class="nav__link"}}VIEW ALL{{/link-to}}
-        {{#link-to "questions.new" class="nav__link"}}NEW QUESTION{{/link-to}}
-        <div class="nav__link">
-          <form class="search-bar" {{action 'searchAll' on="submit"}}>
-            {{input type="search" value=searchTerm placeholder="Search questions"}}
-            <button type="submit"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png" alt="Search Icon"></button>
-          </form>
-        </div>
+
+        {{yield (hash
+          link-to=(component 'link-to' class='nav__link')
+        )}}
+
+        {{#unless media.isMobile}}
+
+          {{c-search-bar class='nav__link'}}
+
+        {{/unless}}
+
       </div>
 
     {{/if}}
