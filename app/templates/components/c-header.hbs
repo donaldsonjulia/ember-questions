@@ -1,0 +1,52 @@
+<header>
+  <nav class="nav">
+    <div class="nav__logo">
+      {{#link-to "questions.index"}}EMBER Q&A{{/link-to}}
+    </div>
+
+    {{#if media.isMobile}}
+
+      <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">☰</button>
+
+      {{#if isShowingNav}}
+
+        {{#modal-dialog
+          onClose=(action (mut isShowingNav) false)
+          tetherTarget='body'
+          targetAttachment='top right'
+          attachment='top right'
+        }}
+
+          <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
+
+            {{yield (hash
+              link-to=(component 'link-to' class='mobile-nav__link')
+            )}}
+
+          </div>
+
+        {{/modal-dialog}}
+
+      {{/if}}
+
+      {{else}}
+
+      <div class="nav__menu">
+
+        {{yield (hash
+          link-to=(component 'link-to' class='nav__link')
+        )}}
+
+        {{#unless media.isMobile}}
+
+          {{c-search-bar class='nav__link'}}
+
+        {{/unless}}
+
+      </div>
+
+    {{/if}}
+
+
+  </nav>
+</header>

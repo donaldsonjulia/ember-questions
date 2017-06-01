@@ -1,19 +1,20 @@
 .question-table {
   @include grid-column(1, $single-grid);
-
   @include grid-media($medium-up-grid) {
-  @include grid-column(10);
-  @include grid-shift(1);
+    @include grid-column(10);
+    @include grid-shift(1);
   }
 
   &__question-data {
     padding: 1.5em 0;
     white-space: nowrap;
-    p, h3, span {
+
+    h3,
+    p,
+    span {
       margin: 0;
     }
   }
-
 
   &__question-data--subject {
     h3 {
@@ -23,7 +24,7 @@
 
   &__question-data--answers {
     font-family: $heading-font-family;
-    font-size: .6em;
+    font-size: 0.6em;
 
     .answers {
       align-items: center;
@@ -36,7 +37,8 @@
       font-size: 2em;
     }
 
-    .has-answers, .no-answers {
+    .has-answers,
+    .no-answers {
       border-radius: $base-border-radius;
       padding: 3px 6px;
     }

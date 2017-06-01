@@ -1,1 +1,12 @@
-{{outlet}}
+<div class={{media.classNames}}>
+
+  {{#c-header as |header|}}
+    {{header.link-to 'VIEW ALL' 'questions.list'}}
+    {{header.link-to 'NEW QUESTION' 'questions.new'}}
+  {{/c-header}}
+
+  <main>
+    {{outlet}}
+  </main>
+
+</div>
