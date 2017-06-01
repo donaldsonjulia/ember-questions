@@ -6,31 +6,32 @@
 
     {{#if media.isMobile}}
 
-      <!-- <div class="mobile-nav__menu-icon"> -->
-        <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">☰</button>
-      <!-- </div> -->
+      <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">☰</button>
 
       {{#if isShowingNav}}
 
-        {{#tether-dialog close=(action (mut isShowingNav) false)
+        {{#modal-dialog
+          onClose=(action (mut isShowingNav) false)
+          tetherTarget='body'
+          targetAttachment='top right'
           attachment='top right'
-          targetAttachment='top right'}}
+        }}
 
           <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
-              {{#link-to "questions.list" class="mobile-nav__link"}}VIEW ALL{{/link-to}}
-              {{#link-to "questions.new" class="mobile-nav__link"}}NEW QUESTION{{/link-to}}
+            {{#link-to "questions.list" class="mobile-nav__link"}}VIEW ALL{{/link-to}}
+            {{#link-to "questions.new" class="mobile-nav__link"}}NEW QUESTION{{/link-to}}
           </div>
 
-        {{/tether-dialog}}
+        {{/modal-dialog}}
 
       {{/if}}
 
       {{else}}
 
       <div class="nav__menu">
-        {{#link-to "questions.list" class="nav__menu-item"}}VIEW ALL{{/link-to}}
-        {{#link-to "questions.new" class="nav__menu-item"}}NEW QUESTION{{/link-to}}
-        <div class="nav__menu-item">
+        {{#link-to "questions.list" class="nav__link"}}VIEW ALL{{/link-to}}
+        {{#link-to "questions.new" class="nav__link"}}NEW QUESTION{{/link-to}}
+        <div class="nav__link">
           <form class="search-bar" {{action 'searchAll' on="submit"}}>
             {{input type="search" value=searchTerm placeholder="Search questions"}}
             <button type="submit"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png" alt="Search Icon"></button>

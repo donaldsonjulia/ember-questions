@@ -1,0 +1,38 @@
+.nav {
+  align-items: center;
+  background: $base-background-color;
+  border-bottom: $base-border;
+  display: flex;
+  height: 4em;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  padding: 0;
+
+
+  &__logo {
+    font-family: $heading-font-family;
+    font-size: 1.3em;
+    margin-left: 20px;
+
+  }
+
+  &__menu {
+    background: $base-background-color;
+    margin-right: 20px;
+  }
+
+
+  &__link {
+    background-color: $base-background-color;
+    color: $base-font-color;
+    display: inline;
+    font-family: $heading-font-family;
+    margin-left: 20px;
+
+    &:hover {
+      color: $action-color;
+    }
+
+  }
+
+}
