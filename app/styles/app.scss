@@ -1,8 +1,10 @@
-@import "../../node_modules/bourbon/app/assets/stylesheets/bourbon";
-@import "../../node_modules/bourbon-neat/core/neat";
+@import "node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "node_modules/bourbon-neat/core/neat";
 @import "scss/base/base";
 @import "scss/helpers";
 @import "ember-modal-dialog/ember-modal-structure";
+
+@import "font-awesome";
 
 @import "scss/components/nav";
 @import "scss/components/mobile-nav";
@@ -16,3 +18,4 @@
 @import "scss/components/new-question-form";
 @import "scss/components/answer-form";
 @import "scss/components/simditor-hacks";
+@import "scss/components/mobiledoc";

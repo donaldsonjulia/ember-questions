@@ -1,0 +1,86 @@
+.md__container {
+//   @include grid-column(1, $single-grid);
+//
+//   @include grid-media($medium-up-grid) {
+//   @include grid-column(8);
+//   @include grid-shift(2);
+// }
+
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.md__toolbar {
+  width: 100%;
+  border: $base-border;
+  border-bottom: 0;
+  border-radius: $base-border-radius $base-border-radius 0 0;
+
+  button {
+    background-color: transparent;
+    color: lighten($base-font-color, 30%);
+    padding: 0.5em;
+    min-width: 40px;
+      &:hover, &.is-selected {
+        color: $base-font-color;
+      }
+
+  }
+
+}
+
+.md__toolbar-section {
+  display: inline;
+  padding: 0 15px;
+  border-right: $base-border;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+
+
+.mobiledoc-editor__editor {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  border: $base-border;
+  border-radius: 0 0 $base-border-radius $base-border-radius;
+  height: 300px;
+  margin-top: 0;
+  overflow: scroll;
+  padding: 0.5em;
+  padding-top: 1em;
+
+  h1 {
+    font-family: inherit;
+    font-size: $heading-font-size;
+  }
+
+  ol, ul {
+    list-style-position: inside;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  strong {
+    font-weight: bold;
+  }
+
+}
+
+.__mobiledoc-editor.__has-no-content:after {
+    content: attr(data-placeholder);
+    color: #bbb;
+    cursor: text;
+    position: absolute;
+    top: 1em;
+}
