@@ -4,7 +4,7 @@
   </div>
   <div class="c-comment__content">
     <h1>{{comment.author}} says:</h1>
-    <p>{{display-text comment.text}}</p>
+    {{render-mobiledoc mobiledoc=comment.mobiledoc}}
     {{yield}}
     <p class="c-comment__detail">posted on {{comment.formattedDate}}</p>
   </div>

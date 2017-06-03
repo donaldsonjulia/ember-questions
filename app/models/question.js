@@ -11,7 +11,7 @@ export default DS.Model.extend({
   author: DS.attr('string'),
   createdAt: DS.attr('date'),
   subject: DS.attr('string'),
-  content: DS.attr('string'),
+  content: DS.attr('string'), //stringified mobiledoc
   answers: DS.hasMany('answer'),
 
   formattedDate: computed('createdAt', function() {
