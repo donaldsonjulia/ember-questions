@@ -11,7 +11,7 @@ export default DS.Model.extend({
   author: DS.attr('string'),
   createdAt: DS.attr('date'),
   subject: DS.attr('string'),
-  text: DS.attr('string'),
+  content: DS.attr('string'),
   answers: DS.hasMany('answer'),
 
   formattedDate: computed('createdAt', function() {
@@ -20,6 +20,10 @@ export default DS.Model.extend({
 
   unanswered: computed('answers.length', function() {
     return this.get('answers.length') === 0;
+  }),
+
+  mobiledoc: computed('content', function() {
+    return JSON.parse(this.get('content'));
   }),
 
 });

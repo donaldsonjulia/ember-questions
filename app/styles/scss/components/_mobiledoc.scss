@@ -75,11 +75,16 @@
     font-weight: bold;
   }
 
+  code {
+    background-color: $secondary-background-color;
+    padding: 3px;
+  }
+
 }
 
 .__mobiledoc-editor.__has-no-content:after {
     content: attr(data-placeholder);
-    color: #bbb;
+    color: tint($base-font-color, 40%);;
     cursor: text;
     position: absolute;
     top: 1em;

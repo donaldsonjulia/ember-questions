@@ -3,5 +3,6 @@
   <p class="question-block__details">posted by <span>{{question.author}}</span> on {{question.formattedDate}}</p>
 </div>
 <div class="question-block__body">
-  {{display-text question.text}}
+  <!-- {{display-text question.text}} -->
+  {{render-mobiledoc mobiledoc=question.mobiledoc}}
 </div>
