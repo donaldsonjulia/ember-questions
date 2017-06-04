@@ -3,14 +3,14 @@ export default function() {
 
   this.get('/questions');
   this.get('/questions/:id');
+  this.patch('/questions/:id');
 
-  // this.get('/questions/:id/answers', function(schema, request) {
-  //   let questionId = request.params.id;
-  //   return schema.comments.where({ questionId: questionId});
-  // });
+  this.post('/questions');
 
+  this.get('/answers');
   this.get('/answers/:id');
 
   this.post('/answers');
+
 
 }
