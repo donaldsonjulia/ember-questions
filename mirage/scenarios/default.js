@@ -1,5 +1,13 @@
 export default function(server) {
 
-  server.createList('question', 10);
-  server.create('answer', {questionId: 2});
+  let questionAmount = 60;
+
+  server.createList('question', questionAmount);
+
+  for (let i = 1; i < questionAmount; i++) {
+    let answerAmount = Math.floor(Math.random() * 10);
+
+    server.createList('answer', answerAmount, {questionId: i});
+  }
+
 }
