@@ -6,15 +6,15 @@
   <div class="question-toolbar__sort-params-select">
     <label>sort by:</label>
     <select data-test-sort-select onchange={{action (mut sort) value="target.value"}}>
-      <option value="createdAt:desc" selected={{eq sort "createdAt:desc"}}>Newest</option>
-      <option value="unanswered:desc,createdAt:desc" selected={{eq sort "unanswered:desc,createdAt:desc"}}>Unanswered</option>
-      <option value="author:asc,createdAt:desc" selected={{eq sort value}}>Author</option>
+      <option value="-createdAt" selected={{eq sort value}}>Newest</option>
+      <option value="-unanswered,-createdAt" selected={{eq sort value}}>Unanswered</option>
+      <option value="author,-createdAt" selected={{eq sort value}}>Author</option>
     </select>
   </div>
 </div>
 
 <table class="question-table {{media.classNames}}">
-  {{#each sortedQuestions as |question|}}
+  {{#each model as |question|}}
         <tr data-test-question-id={{question.id}} class="question-table__question-row">
           <td class="question-table__question-data question-table__question-data--answers">
               <div class="answers" data-test-answer-amount-for={{question.id}}>
