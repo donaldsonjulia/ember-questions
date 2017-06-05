@@ -12,18 +12,16 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
-    this.set('textObj', {
-      content: null
-    });
+    this.set('mobiledoc', null);
   },
 
   question: null,
   author: '',
   'on-submit': null,
 
-  formIncomplete: computed('author', 'textObj.content', function() {
+  formIncomplete: computed('author', 'mobiledoc', function() {
     let author = this.get('author');
-    let content = this.get('textObj.content');
+    let content = this.get('mobiledoc');
 
     return isEmpty(author) || isEmpty(content);
   }),
@@ -32,23 +30,25 @@ export default Ember.Component.extend({
     postAnswer() {
       let question = this.get('question');
       let author = this.get('author');
-      let text = this.get('textObj.content');
+      let content = JSON.stringify(this.get('mobiledoc'));
 
       this.get('on-submit')({
         question,
         author,
-        text
+        content
       }).then(() => {
         this.setProperties({
           author: '',
-          textObj: {
-            content: null
-          }
+          mobiledoc: null
         });
       }).catch((error) => {
         this.set('error', error)
       });
-    }
+    },
+
+    mobiledocWasUpdated(updatedDoc) {
+      this.set('mobiledoc', updatedDoc);
+    },
 
   }
 });

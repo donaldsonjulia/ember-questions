@@ -11,8 +11,8 @@ export default DS.Model.extend({
   author: DS.attr('string'),
   createdAt: DS.attr('date'),
   subject: DS.attr('string'),
-  text: DS.attr('string'),
-  answers: DS.hasMany('answer'),
+  content: DS.attr('string'), //stringified mobiledoc
+  answers: DS.hasMany('answer', { async: true }),
 
   formattedDate: computed('createdAt', function() {
     return moment.utc(this.get('createdAt')).format('MM/DD/YYYY');
@@ -20,6 +20,10 @@ export default DS.Model.extend({
 
   unanswered: computed('answers.length', function() {
     return this.get('answers.length') === 0;
+  }),
+
+  mobiledoc: computed('content', function() {
+    return JSON.parse(this.get('content'));
   }),
 
 });

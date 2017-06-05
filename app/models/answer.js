@@ -2,15 +2,23 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import moment from 'moment';
 
+const {
+  computed
+} = Ember;
+
 
 export default DS.Model.extend({
   author: DS.attr('string'),
   createdAt: DS.attr('date'),
-  text: DS.attr('string'),
+  content: DS.attr('string'), //stringified mobiledoc
   question: DS.belongsTo('question'),
 
-  formattedDate: Ember.computed('createdAt', function() {
+  formattedDate: computed('createdAt', function() {
     return moment(this.get('createdAt')).format('MM/DD/YYYY [at] h:mm a ');
+  }),
+
+  mobiledoc: computed('content', function() {
+    return JSON.parse(this.get('content'));
   }),
 
 });

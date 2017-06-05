@@ -9,13 +9,13 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    createAnswer({ question, author, text }) {
+    createAnswer({ question, author, content }) {
 
       let newAnswer = this.store.createRecord('answer', {
-        author: author,
+        author,
+        content,
+        question,
         createdAt: new Date(),
-        text: text,
-        question: question
       });
 
       return this.get('saveAnswer').perform(question, newAnswer);
