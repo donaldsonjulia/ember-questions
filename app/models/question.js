@@ -12,7 +12,7 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   subject: DS.attr('string'),
   content: DS.attr('string'), //stringified mobiledoc
-  answers: DS.hasMany('answer'),
+  answers: DS.hasMany('answer', { async: true }),
 
   formattedDate: computed('createdAt', function() {
     return moment.utc(this.get('createdAt')).format('MM/DD/YYYY');
