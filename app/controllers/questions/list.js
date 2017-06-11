@@ -6,11 +6,11 @@ const {
 
 export default Ember.Controller.extend({
 
-  queryParams: ['sort', 'page'],
+  queryParams: ['sort', 'page', 'limit'],
 
   sort: '-createdAt',
-  page: 1,
-
+  page: 0,
+  limit: 10,
 
   actions: {
   },

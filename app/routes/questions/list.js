@@ -5,18 +5,22 @@ const { set } = Ember;
 export default Ember.Route.extend({
 
 queryParams: {
+  sort: {
+    refreshModel: true
+  },
   page: {
     refreshModel: true
   },
-  sort: {
+  limit: {
     refreshModel: true
   }
 },
 
-model({ page, sort }) {
+model({ page, sort, limit }) {
   return this.get('store').query('question', {
     page,
-    sort
+    sort,
+    limit
    });
 },
 
@@ -25,7 +29,7 @@ resetController(controller, isExiting) {
   this._super(...arguments);
   if (isExiting) {
     controller.set('sort', '-createdAt');
-    controller.set('page', 1);
+    controller.set('page', 0);
   }
 }
 
