@@ -8,13 +8,9 @@ export default Ember.Controller.extend({
 
   queryParams: ['sort', 'page'],
 
-  sort: null,
-  page: null,
+  sort: '-createdAt',
+  page: 1,
 
-  sortParams: computed('sort', function() {
-    let sort = this.get('sort') || '-createdAt';
-    return sort.split(',');
-  }),
 
   actions: {
   },

@@ -7,8 +7,7 @@
     <label>sort by:</label>
     <select data-test-sort-select onchange={{action (mut sort) value="target.value"}}>
       <option value="-createdAt" selected={{eq sort value}}>Newest</option>
-      <option value="-unanswered,-createdAt" selected={{eq sort value}}>Unanswered</option>
-      <option value="author,-createdAt" selected={{eq sort value}}>Author</option>
+      <option value="unanswered" selected={{eq sort value}}>Unanswered</option>
     </select>
   </div>
 </div>

@@ -4,8 +4,6 @@ const { set } = Ember;
 
 export default Ember.Route.extend({
 
-pageSize: 4,
-
 queryParams: {
   page: {
     refreshModel: true
@@ -15,29 +13,19 @@ queryParams: {
   }
 },
 
-model({ page = 1, sort }) {
-  let pageSize = this.get('pageSize');
-  let startAt = pageSize * page;
-  this.set('startAt', startAt);
-
+model({ page, sort }) {
   return this.get('store').query('question', {
-    limit: pageSize,
-    offset: 0,
+    page,
     sort
-  });
-},
-
-setupController(controller) {
-  this._super(...arguments);
-  set(controller, 'startAt', this.get('startAt'));
-  set(controller, 'pageSize', this.get('pageSize'));
+   });
 },
 
 
 resetController(controller, isExiting) {
   this._super(...arguments);
   if (isExiting) {
-    controller.set('sort', null);
+    controller.set('sort', '-createdAt');
+    controller.set('page', 1);
   }
 }
 
