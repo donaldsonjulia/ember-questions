@@ -6,8 +6,8 @@
   <div class="question-toolbar__sort-params-select">
     <label>sort by:</label>
     <select data-test-sort-select onchange={{action (mut sort) value="target.value"}}>
-      <option value="-createdAt" selected={{eq sort value}}>Newest</option>
-      <option value="unanswered" selected={{eq sort value}}>Unanswered</option>
+      <option value="-createdAt" selected={{eq sort '-createdAt'}}>Newest</option>
+      <option value="unanswered" selected={{eq sort 'unanswered'}}>Unanswered</option>
     </select>
   </div>
 </div>
@@ -31,6 +31,8 @@
         </tr>
   {{/each}}
 </table>
+
+{{c-pagination currentPage=page totalPages=totalPages}}
 
 
 {{outlet}}

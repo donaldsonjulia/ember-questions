@@ -1,0 +1,15 @@
+<div class="pagination">
+  <ul>
+    {{#if hasPrev}}
+      <li class="page-prev">{{link-to '< Prev' (query-params page=prevPage)}}</li>
+    {{/if}}
+    {{#each pages as |pageNumber|}}
+     <li>
+      {{#link-to (query-params page=pageNumber)}}{{pageNumber}}{{/link-to}}
+     </li>
+    {{/each}}
+    {{#if hasNext}}
+      <li class="page-next">{{link-to 'Next >' (query-params page=nextPage)}}</li>
+    {{/if}}
+  </ul>
+</div>
