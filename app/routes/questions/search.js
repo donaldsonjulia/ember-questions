@@ -35,7 +35,8 @@ export default Ember.Route.extend({
   resetController(controller, isExiting) {
     this._super(...arguments);
     if (isExiting) {
-      controller.set('page', 1);
+      set(controller, 'page', 1);
+      this.get('searchService').setSearchTerm('');
     }
   }
 
