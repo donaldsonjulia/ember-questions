@@ -1,4 +1,5 @@
-{{question-block question=model data-test-question-id=model.id}}
+{{c-question-block question=model data-test-question-id=model.id}}
+
 <div class="question-answers">
   {{#if model.answers}}
     <ul>
@@ -12,4 +13,5 @@
     </div>
   {{/if}}
 </div>
-{{answer-form question=model on-submit=(action "createAnswer")}}
+
+{{c-answer-form question=model on-submit=(action "createAnswer")}}

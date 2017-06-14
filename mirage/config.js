@@ -4,7 +4,8 @@ export default function() {
 
   this.get('/questions');
 
-
+  // this.get('/questions/list');
+  // this.get('/questions/search');
 
   this.get('/questions/:id');
   this.patch('/questions/:id');

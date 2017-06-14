@@ -17,7 +17,7 @@ queryParams: {
 },
 
 model({ page, sort, limit }) {
-  return this.get('store').query('question', {
+  return this.store.query('question', {
     page,
     sort,
     limit
@@ -25,7 +25,6 @@ model({ page, sort, limit }) {
 },
 
 setupController(controller, model) {
-  // set(controller, 'model', model);
   this._super(...arguments);
   set(controller, 'totalPages', get(model, 'meta.totalPages'));
 },

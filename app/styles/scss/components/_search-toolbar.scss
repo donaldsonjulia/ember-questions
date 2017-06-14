@@ -1,0 +1,11 @@
+.search-toolbar {
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
+  @include grid-column(10);
+  @include grid-shift(1);
+  }
+
+  margin-bottom: 1em;
+  margin-top: 1em;
+}

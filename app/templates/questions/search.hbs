@@ -1,0 +1,30 @@
+<div class="route-header">
+  <h1 class="route-header__title">SEARCH RESULTS</h1>
+</div>
+{{outlet}}
+
+<div class="search-toolbar">
+  {{c-search-bar searchTerm=searchService.searchTerm onSubmit=(action 'doSearch') class="c-search-bar--full-width"}}
+</div>
+
+<table class="question-table {{media.classNames}}">
+  {{#each model as |question|}}
+        <tr data-test-question-id={{question.id}} class="question-table__question-row">
+          <td class="question-table__question-data question-table__question-data--answers">
+              <div class="answers" data-test-answer-amount-for={{question.id}}>
+                {{answer-amount question.answers.length}}
+              </div>
+          </td>
+          <td class="question-table__question-data question-table__question-data--subject">
+              <h3>
+                {{#link-to "questions.question" question class="question-table__question-link" data-test-subject-link-for=question.id}}
+                  {{question.subject}}
+                {{/link-to}}
+              </h3>
+          </td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author" data-test-author-for={{question.id}}>{{question.author}}</span> on <span class="date" data-test-formatted-date-for={{question.id}}>{{question.formattedDate}}</span></p></td>
+        </tr>
+  {{/each}}
+</table>
+
+{{c-pagination currentPage=page totalPages=totalPages}}

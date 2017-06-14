@@ -12,15 +12,15 @@
 
         {{#modal-dialog
           onClose=(action (mut isShowingNav) false)
-          tetherTarget='body'
-          targetAttachment='top right'
-          attachment='top right'
+          tetherTarget="body"
+          targetAttachment="top right"
+          attachment="top right"
         }}
 
           <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
 
             {{yield (hash
-              link-to=(component 'link-to' class='mobile-nav__link')
+              link-to=(component "link-to" class="mobile-nav__link")
             )}}
 
           </div>
@@ -34,12 +34,12 @@
       <div class="nav__menu">
 
         {{yield (hash
-          link-to=(component 'link-to' class='nav__link')
+          link-to=(component "link-to" class="nav__link")
         )}}
 
         {{#unless media.isMobile}}
 
-          {{c-search-bar class='nav__link'}}
+          {{c-search-bar onSubmit=(action 'doSearch') searchTerm=search.searchTerm class="nav__link"}}
 
         {{/unless}}
 
