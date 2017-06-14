@@ -22,7 +22,7 @@ export default Ember.Route.extend({
         controller.set('subject', '');
         controller.set('mobiledocObj', null);
 
-        this.transitionTo('questions.list', { queryParams: { sort:'createdAt:desc'} });
+        this.transitionTo('questions.list');
       });
     },
 

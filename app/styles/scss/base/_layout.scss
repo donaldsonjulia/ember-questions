@@ -25,3 +25,7 @@ main {
   margin: 0 auto;
   margin-bottom: 2em;
 }
+
+.container {
+  @include grid-column;
+}

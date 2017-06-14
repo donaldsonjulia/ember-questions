@@ -1,15 +1,40 @@
 import Ember from 'ember';
 
+const { set, get } = Ember;
+
 export default Ember.Route.extend({
 
-model() {
-  return this.get('store').findAll('question');
+queryParams: {
+  sort: {
+    refreshModel: true
+  },
+  page: {
+    refreshModel: true
+  },
+  limit: {
+    refreshModel: true
+  }
+},
+
+model({ page, sort, limit }) {
+  return this.store.query('question', {
+    page,
+    sort,
+    limit
+   });
+},
+
+setupController(controller, model) {
+  this._super(...arguments);
+  set(controller, 'totalPages', get(model, 'meta.totalPages'));
 },
 
 
-resetController(controller, isExiting, transition) {
+resetController(controller, isExiting) {
+  this._super(...arguments);
   if (isExiting) {
-    controller.set('sort', null);
+    controller.set('sort', '-createdAt');
+    controller.set('page', 1);
   }
 }
 

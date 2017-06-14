@@ -1,7 +1,12 @@
+
 export default function() {
   this.namespace = '/api';
 
   this.get('/questions');
+
+  // this.get('/questions/list');
+  // this.get('/questions/search');
+
   this.get('/questions/:id');
   this.patch('/questions/:id');
 

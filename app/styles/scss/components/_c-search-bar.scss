@@ -1,11 +1,13 @@
-form.search-bar {
+.c-search-bar {
 
   $search-bar-border-color: $base-border-color;
   $search-bar-border: 1px solid $search-bar-border-color;
   $search-bar-background: lighten($search-bar-border-color, 10%);
 
-  position: relative;
-  display: inline-block;
+  form {
+    position: relative;
+    display: inline-block;
+  }
 
   input[type=search] {
     appearance: none;
@@ -33,5 +35,11 @@ form.search-bar {
       height: 12px;
       opacity: 0.7;
     }
+  }
+}
+
+.c-search-bar--full-width {
+  form {
+    display: block;
   }
 }

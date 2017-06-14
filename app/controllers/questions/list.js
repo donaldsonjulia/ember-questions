@@ -6,16 +6,11 @@ const {
 
 export default Ember.Controller.extend({
 
-  queryParams: ['sort'],
+  queryParams: ['sort', 'page', 'limit'],
 
-  sort: null,
-
-  sortParams: computed('sort', function() {
-    let sort = this.get('sort') || 'createdAt:desc';
-    return sort.split(',');
-  }),
-
-  sortedQuestions: computed.sort('model', 'sortParams'),
+  sort: '-createdAt',
+  page: 1,
+  limit: 10,
 
   actions: {
   },

@@ -1,15 +1,10 @@
 <div class="route-header">
-  <h1 class="route-header__title">ALL QUESTIONS</h1>
+  <h1 class="route-header__title">SEARCH RESULTS</h1>
 </div>
+{{outlet}}
 
-<div class="question-toolbar">
-  <div class="question-toolbar__sort-params-select">
-    <label>sort by:</label>
-    <select data-test-sort-select onchange={{action (mut sort) value="target.value"}}>
-      <option value="-createdAt" selected={{eq sort '-createdAt'}}>Newest</option>
-      <option value="unanswered" selected={{eq sort 'unanswered'}}>Unanswered</option>
-    </select>
-  </div>
+<div class="search-toolbar">
+  {{c-search-bar searchTerm=searchService.searchTerm onSubmit=(action 'doSearch') class="c-search-bar--full-width"}}
 </div>
 
 <table class="question-table {{media.classNames}}">
@@ -33,6 +28,3 @@
 </table>
 
 {{c-pagination currentPage=page totalPages=totalPages}}
-
-
-{{outlet}}
