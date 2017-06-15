@@ -1,15 +1,67 @@
-<div class="pagination">
+<div class="pagination {{media.classNames}}">
   <ul>
+
     {{#if hasPrev}}
-      <li class="page-prev">{{link-to '< Prev' (query-params page=prevPage)}}</li>
+      <li class="page-prev">
+        {{#link-to (query-params page=prevPage)}}
+          {{fa-icon 'angle-left'}}
+          {{#unless media.isMobile}}<span>Prev</span>{{/unless}}
+        {{/link-to}}
+      </li>
     {{/if}}
-    {{#each pages as |pageNumber|}}
-     <li>
-      {{#link-to (query-params page=pageNumber)}}{{pageNumber}}{{/link-to}}
-     </li>
-    {{/each}}
+
+    {{#if media.isMobile}}
+
+        {{#each prev2Pages as |pageNumber|}}
+          <li class="page-link">
+            {{#link-to (query-params page=pageNumber)}}{{pageNumber}}{{/link-to}}
+          </li>
+        {{/each}}
+
+        {{#if (gt pages.length 1)}}
+          <li class="page-link page-link--current-page">
+            {{#link-to (query-params page=currentPage)}}{{currentPage}}{{/link-to}}
+          </li>
+        {{/if}}
+
+        {{#each next2Pages as |pageNumber|}}
+          <li class="page-link">
+            {{#link-to (query-params page=pageNumber)}}{{pageNumber}}{{/link-to}}
+          </li>
+        {{/each}}
+
+    {{/if}}
+
+    {{#unless media.isMobile}}
+
+        {{#each prev3Pages as |pageNumber|}}
+          <li class="page-link">
+            {{#link-to (query-params page=pageNumber)}}{{pageNumber}}{{/link-to}}
+          </li>
+        {{/each}}
+
+        {{#if (gt pages.length 1)}}
+          <li class="page-link page-link--current-page">
+            {{#link-to (query-params page=currentPage)}}{{currentPage}}{{/link-to}}
+          </li>
+        {{/if}}
+
+        {{#each next3Pages as |pageNumber|}}
+          <li class="page-link">
+            {{#link-to (query-params page=pageNumber)}}{{pageNumber}}{{/link-to}}
+          </li>
+        {{/each}}
+
+    {{/unless}}
+
     {{#if hasNext}}
-      <li class="page-next">{{link-to 'Next >' (query-params page=nextPage)}}</li>
+      <li class="page-next">
+        {{#link-to (query-params page=nextPage)}}
+          {{fa-icon 'angle-right'}}
+          {{#unless media.isMobile}}<span>Next</span>{{/unless}}
+        {{/link-to}}
+      </li>
     {{/if}}
+
   </ul>
 </div>
