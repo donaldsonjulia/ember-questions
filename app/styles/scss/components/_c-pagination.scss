@@ -1,40 +1,52 @@
 .pagination {
+
+  $pagination-border-color: $base-border-color;
+  $pagination-border: 1px solid $pagination-border-color;
+  $pagination-background: $base-background-color;
+  $pagination-hover-background: $secondary-background-color;
+  $pagination-color: $base-font-color;
+
+
   @include grid-column();
   margin-top: 2em;
   margin-bottom: 1em;
 
-  $pagination-border-color: $base-border-color;
-  $pagination-border: 1px solid $pagination-border-color;
-  $pagination-background: lighten($pagination-border-color, 10);
-  $pagination-hover-background: lighten($pagination-background, 5);
-  $pagination-color: $base-font-color;
-
-  text-align: center;
-
   ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
 
     li {
-      display: inline;
-      list-style: none;
+      margin: 0 4px;
     }
 
     li a {
+      background: $pagination-background;
       border: $base-border;
       color: $pagination-color;
       outline: none;
-      padding: 8px 16px ;
+      padding: 8px 16px;
       transition: all 0.2s ease-in-out;
 
       &:hover,
       &:active {
-        color: $action-color;
+        background: $pagination-hover-background;
       }
+    }
+
+    li.page-link a.active {
+          background: $theme-color;
+          border-color: $theme-color;
+        }
+  }
+}
 
 
+.pagination.media-mobile {
+  ul {
+
+    li.page-link a {
+      padding: 8px 12px;
     }
   }
 }
