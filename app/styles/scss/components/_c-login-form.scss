@@ -1,0 +1,26 @@
+.c-login-form {
+
+  @include grid-column(1, $single-grid);
+
+  @include grid-media($medium-up-grid) {
+  @include grid-column(10);
+  @include grid-shift(1);
+ }
+
+ @include grid-media($tablet-up-grid) {
+   @include grid-column(8);
+   @include grid-shift(2);
+ }
+
+ @include grid-media($desktop-up-grid) {
+   @include grid-column(6);
+   @include grid-shift(3);
+ }
+
+ margin-top: 2em;
+ margin-bottom: 2em;
+
+  &__btn {
+    width: 100%;
+  }
+}

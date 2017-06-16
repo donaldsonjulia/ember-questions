@@ -6,12 +6,17 @@
 
 @import "font-awesome";
 
-@import "scss/components/nav";
-@import "scss/components/mobile-nav";
+@import "scss/components/c-header/nav";
+@import "scss/components/c-header/mobile-nav";
+
 @import "scss/components/c-search-bar";
+@import "scss/components/search-toolbar";
+
 @import "scss/components/c-pagination";
 @import "scss/components/c-comment";
-@import "scss/components/route-header";
+@import "scss/components/c-login-form";
+
+@import "scss/components/c-route-title-header";
 @import "scss/components/question-block";
 @import "scss/components/question-table";
 @import "scss/components/question-toolbar";
@@ -19,4 +24,3 @@
 @import "scss/components/new-question-form";
 @import "scss/components/answer-form";
 @import "scss/components/mobiledoc";
-@import "scss/components/search-toolbar";

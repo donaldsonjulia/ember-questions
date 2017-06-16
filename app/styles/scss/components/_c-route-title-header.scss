@@ -1,5 +1,5 @@
 
-.route-header {
+.c-route-title-header {
   @include grid-column(1, $single-grid);
 
   @include grid-media($medium-up-grid) {

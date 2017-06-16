@@ -8,12 +8,24 @@ $single-grid: (
   gutter: 20px
 );
 
+
 $medium-up-grid: (
   columns: 12,
   gutter: 20px,
   media: "(min-width: 600px)"
 );
 
+$tablet-up-grid: (
+  columns: 12,
+  gutter: 20px,
+  media: "(min-width: 768px)"
+);
+
+$desktop-up-grid: (
+  columns: 12,
+  gutter: 20px,
+  media: "(min-width: 992px)"
+);
 
 // Typography
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700');

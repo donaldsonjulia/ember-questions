@@ -10,42 +10,61 @@
 
       {{#if isShowingNav}}
 
-        {{#modal-dialog
-          onClose=(action (mut isShowingNav) false)
-          tetherTarget="body"
-          targetAttachment="top right"
-          attachment="top right"
-        }}
+          {{#modal-dialog
+            onClose=(action (mut isShowingNav) false)
+            tetherTarget="body"
+            targetAttachment="top right"
+            attachment="top right"
+          }}
 
-          <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
+            <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
 
-            {{yield (hash
-              link-to=(component "link-to" class="mobile-nav__link")
-            )}}
+              {{yield (hash
+                link-to=(component "link-to" class="mobile-nav__link")
+              )}}
 
-          </div>
+              {{#if session.isAuthenticated}}
+                <a {{action "invalidateSession"}} class="mobile-nav__link">LOGOUT</a>
 
-        {{/modal-dialog}}
+              {{else}}
+
+                {{link-to "LOGIN" "login" class="mobile-nav__link"}}
+
+              {{/if}}
+
+            </div>
+
+          {{/modal-dialog}}
 
       {{/if}}
 
       {{else}}
 
-      <div class="nav__menu">
+        <div class="nav__menu">
 
-        {{yield (hash
-          link-to=(component "link-to" class="nav__link")
-        )}}
+          {{yield (hash
+            link-to=(component "link-to" class="nav__link")
+          )}}
 
-        {{#unless media.isMobile}}
+          {{#if session.isAuthenticated}}
+            <a {{action 'invalidateSession'}} class="nav__link">LOGOUT</a>
 
-          {{c-search-bar onSubmit=(action 'doSearch') searchTerm=search.searchTerm class="nav__link"}}
+          {{else}}
 
-        {{/unless}}
+            {{link-to "LOGIN" "login" class="nav__link"}}
 
-      </div>
+          {{/if}}
+
+          {{#unless media.isMobile}}
+
+            {{c-search-bar onSubmit=(action "doSearch") searchTerm=search.searchTerm class="nav__link"}}
+
+          {{/unless}}
+
+        </div>
 
     {{/if}}
+
 
 
   </nav>

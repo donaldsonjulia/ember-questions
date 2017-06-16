@@ -4,8 +4,11 @@ export default function() {
 
   this.get('/questions');
 
+  // ** THESE DO NOT SEEM TO WORK **
   // this.get('/questions/list');
   // this.get('/questions/search');
+
+  this.post('/token');
 
   this.get('/questions/:id');
   this.patch('/questions/:id');

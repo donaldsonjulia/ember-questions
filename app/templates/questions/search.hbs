@@ -1,7 +1,4 @@
-<div class="route-header">
-  <h1 class="route-header__title">SEARCH RESULTS</h1>
-</div>
-{{outlet}}
+{{c-route-title-header title="SEARCH"}}
 
 <div class="search-toolbar">
   {{c-search-bar searchTerm=searchService.searchTerm onSubmit=(action 'doSearch') class="c-search-bar--full-width"}}
@@ -28,3 +25,5 @@
 </table>
 
 {{c-pagination currentPage=page totalPages=totalPages}}
+
+{{outlet}}
