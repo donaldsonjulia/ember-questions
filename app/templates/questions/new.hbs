@@ -3,8 +3,8 @@
 <form class="new-question-form" {{action "createQuestion" on="submit"}}>
   <fieldset>
     <legend>ASK A NEW QUESTION:</legend>
-    {{input type="text" placeholder="Your name" value=author}}
-    {{input type="text" placeholder="Subject" value=subject}}
+    {{input type="text" placeholder="Your name" value=author data-test-author-input=true}}
+    {{input type="text" placeholder="Subject" value=subject data-test-subject-input=true}}
     <div class="md__container">
       {{#mobiledoc-editor on-change=(action 'mobiledocWasUpdated') as |editor|}}
         <div class="md__toolbar">
@@ -26,5 +26,5 @@
     </div>
   </fieldset>
 
-  <button type="submit" disabled={{questionFormInvalid}}>SUBMIT</button>
+  <button type="submit" disabled={{questionFormInvalid}} data-test-submit-btn>SUBMIT</button>
 </form>

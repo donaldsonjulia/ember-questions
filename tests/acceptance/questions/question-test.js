@@ -28,7 +28,7 @@ test('can post answer', function(assert) {
   server.createList('answer', 3, { questionId: question.id });
 
   let author = 'Lucia';
-  let text = '<p>This is a test answer</p>';
+  let text = 'This is a test answer';
 
   visit('/questions/' + question.id);
   fillIn(testSelector('author-input'), author);

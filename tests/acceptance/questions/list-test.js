@@ -77,7 +77,7 @@ test('displays questions correctly', function(assert) {
 });
 
 test('can click on question subject link to view individual question', function(assert) {
-    server.createList('question', 20);
+    server.createList('question', 2);
     visit('/questions/list');
     click(testSelector('subject-link-for', 2));
 
