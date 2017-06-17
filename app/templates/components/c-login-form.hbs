@@ -1,13 +1,13 @@
 
 <form {{action 'authenticate' on='submit'}} class="c-login-form {{media.classNames}}">
+  {{#if errorMessage}}
+    <div class="flash-error">
+      <span>{{errorMessage}}</span>
+    </div>
+  {{/if}}
   <label for="identification">USERNAME</label>
   {{input id='identification' placeholder='Enter Username' value=identification}}
   <label for="password">PASSWORD</label>
   {{input id='password' placeholder='Enter Password' type='password' value=password}}
   <button type="submit" class="c-login-form__btn">LOGIN</button>
-  {{#if errorMessage}}
-    <div class="flash-error">
-      <p>{{errorMessage}}</p>
-    </div>
-  {{/if}}
 </form>

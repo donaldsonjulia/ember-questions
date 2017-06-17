@@ -1,14 +1,22 @@
+import Mirage from 'ember-cli-mirage';
 
 export default function() {
   this.namespace = '/api';
 
   this.get('/questions');
 
-  // ** THESE DO NOT SEEM TO WORK **
-  // this.get('/questions/list');
-  // this.get('/questions/search');
+  this.post('/token', (schema, request) => {
+    let req = JSON.parse(request.requestBody);
+    let username = req.username;
+    let password = req.password;
 
-  this.post('/token');
+    if(password === 'julia') {
+      return new Mirage.Response(201, {}, { jwt: 'testToken'});
+    } else {
+      return new Mirage.Response(404, {}, { error: 'Incorrect Password'});
+    }
+
+  });
 
   this.get('/questions/:id');
   this.patch('/questions/:id');
