@@ -3,12 +3,19 @@ import { test } from 'qunit';
 import Ember from 'ember';
 import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
 import testSelector from 'ember-test-selectors';
+import { insertText, run } from '../../helpers/ember-mobiledoc-editor';
 
-moduleForAcceptance('Acceptance | questions/question');
+moduleForAcceptance('Acceptance | questions/question', {
+  afterEach() {
+  server.shutdown();
+}
+});
 
 test('displays correct amount of answers', function(assert){
-  let questionID = '-KkSpzGeeqJAROQtp47U'; //this question has 3 answers in fixture data
-  visit('/questions/question/' + questionID);
+  let question = server.create('question');
+  server.createList('answer', 3, { questionId: question.id });
+
+  visit('/questions/' + question.id);
 
   andThen(() => {
     assert.equal(find(testSelector('answer')).length, 3, 'displays 3 answers for question');
@@ -17,16 +24,18 @@ test('displays correct amount of answers', function(assert){
 });
 
 test('can post answer', function(assert) {
-  let questionID = '-KkSpzGeeqJAROQtp47U'; //this question has 3 pre-existing answers in fixture data
+  let question = server.create('question');
+  server.createList('answer', 3, { questionId: question.id });
+
   let author = 'Lucia';
   let text = '<p>This is a test answer</p>';
 
-  visit('/questions/question/' + questionID);
+  visit('/questions/' + question.id);
   fillIn(testSelector('author-input'), author);
-
-  //CANNOT GET THIS TO WORK
-
-  return pauseTest();
+  andThen(() => {
+    let editorEl = find('.mobiledoc-editor__editor')[0];
+    return insertText(editorEl, text);
+  });
 
   click(testSelector('answer-submit'));
 
