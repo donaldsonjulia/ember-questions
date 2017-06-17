@@ -1,13 +1,10 @@
 
 import { test } from 'qunit';
 import Ember from 'ember';
-import moduleForEmberfireAcceptance from 'questions/tests/helpers/module-for-emberfire-acceptance';
+import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
 import testSelector from 'ember-test-selectors';
-import FIREBASE_FIXTURE_DATA from 'questions/tests/fixtures/firebase/fixture-data';
 
-moduleForEmberfireAcceptance('Acceptance | questions/question', {
-  fixtureData: FIREBASE_FIXTURE_DATA
-});
+moduleForAcceptance('Acceptance | questions/question');
 
 test('displays correct amount of answers', function(assert){
   let questionID = '-KkSpzGeeqJAROQtp47U'; //this question has 3 answers in fixture data

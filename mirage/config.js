@@ -7,7 +7,6 @@ export default function() {
 
   this.post('/token', (schema, request) => {
     let req = JSON.parse(request.requestBody);
-    let username = req.username;
     let password = req.password;
 
     if(password === 'julia') {
