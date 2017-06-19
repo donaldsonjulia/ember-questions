@@ -51,9 +51,9 @@ test('displays questions correctly', function(assert) {
   let singleAnswerQuestionId = 1;
   let threeAnswersQuestionId = 2;
   let unansweredQuestionId = 3;
-
-  server.createList('question', 2);
-  server.create('question', { author: 'Lucia', createdAt: '2017-05-31T00:42:28.143Z', subject: 'Hola!' });
+  server.create('user', { username: 'Lucia88'});
+  server.createList('question', 2, { authorId: 1 });
+  server.create('question', { authorId: 1, createdAt: '2017-05-31T00:42:28.143Z', subject: 'Hola!' });
   server.create('answer', {questionId: 1});
   server.createList('answer', 3, {questionId: 2});
 
@@ -67,7 +67,7 @@ test('displays questions correctly', function(assert) {
 
     assert.equal(find(testSelector('answer-amount-for', threeAnswersQuestionId)).text().trim(), '3ANSWERS', 'question with 3 answers displays correct answer amount and suffix');
 
-    assert.equal(find(testSelector('author-for', unansweredQuestionId)).text().trim(), 'Lucia', 'displays correct author name');
+    assert.equal(find(testSelector('author-for', unansweredQuestionId)).text().trim(), 'Lucia88', 'displays correct author name');
 
     assert.equal(find(testSelector('formatted-date-for', unansweredQuestionId)).text().trim(), '05/31/2017', 'displays correctly formatted date');
 
