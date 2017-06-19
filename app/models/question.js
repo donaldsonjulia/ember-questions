@@ -8,7 +8,7 @@ const {
 
 
 export default DS.Model.extend({
-  author: DS.attr('string'),
+  author: DS.belongsTo('user'),
   createdAt: DS.attr('date'),
   subject: DS.attr('string'),
   content: DS.attr('string'), //stringified mobiledoc

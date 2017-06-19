@@ -1,13 +1,21 @@
-
-<form {{action 'authenticate' on='submit'}} class="c-login-form {{media.classNames}}">
-  {{#if errorMessage}}
-    <div class="flash-error">
-      <span>{{errorMessage}}</span>
-    </div>
+{{#unless session.isAuthenticated}}
+  <form {{action 'authenticate' on='submit'}} class="c-login-form {{media.classNames}}" data-test-login-form>
+    {{#if errorMessage}}
+      <div class="flash-error">
+        <span>{{errorMessage}}</span>
+      </div>
+    {{/if}}
+    <label for="identification">USERNAME</label>
+    {{input id='identification' placeholder='Enter Username' value=identification}}
+    <label for="password">PASSWORD</label>
+    {{input id='password' placeholder='Enter Password' type='password' value=password}}
+    <button type="submit" class="c-login-form__btn">LOGIN</button>
+  </form>
+{{/unless}}
+{{#if session.isAuthenticated}}
+  {{#if currentUser.user}}
+  <div class="flash-notice">
+    <p>Logged in as {{currentUser.user.name}}. <a {{action 'invalidateSession'}} data-test-logout-link>Logout</a></p>
+  </div>
   {{/if}}
-  <label for="identification">USERNAME</label>
-  {{input id='identification' placeholder='Enter Username' value=identification}}
-  <label for="password">PASSWORD</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit" class="c-login-form__btn">LOGIN</button>
-</form>
+{{/if}}

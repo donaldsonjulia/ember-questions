@@ -25,7 +25,7 @@
                 {{/link-to}}
               </h3>
           </td>
-          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author" data-test-author-for={{question.id}}>{{question.author}}</span> on <span class="date" data-test-formatted-date-for={{question.id}}>{{question.formattedDate}}</span></p></td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author" data-test-author-for={{question.id}}>{{question.author.username}}</span> on <span class="date" data-test-formatted-date-for={{question.id}}>{{question.formattedDate}}</span></p></td>
         </tr>
   {{/each}}
 </table>

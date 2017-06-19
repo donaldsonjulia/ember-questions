@@ -6,7 +6,7 @@
 
     {{#if media.isMobile}}
 
-      <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">☰</button>
+      <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">{{fa-icon 'navicon'}}</button>
 
       {{#if isShowingNav}}
 
@@ -47,11 +47,11 @@
           )}}
 
           {{#if session.isAuthenticated}}
-            <a {{action 'invalidateSession'}} class="nav__link">LOGOUT</a>
+            <a {{action 'invalidateSession'}} class="nav__link" data-test-header-logout-link>LOGOUT</a>
 
           {{else}}
 
-            {{link-to "LOGIN" "login" class="nav__link"}}
+            {{link-to "LOGIN" "login" class="nav__link" data-test-header-login-link=true}}
 
           {{/if}}
 

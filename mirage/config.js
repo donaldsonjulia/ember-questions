@@ -27,5 +27,7 @@ export default function() {
 
   this.post('/answers');
 
+  this.get('/users');
+  this.get('/users/:id');
 
 }

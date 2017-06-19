@@ -8,6 +8,7 @@ const {
 export default Ember.Component.extend({
 
   session: service(),
+  currentUser: service('current-user'),
 
   login: '',
   password: '',
@@ -26,7 +27,7 @@ export default Ember.Component.extend({
          this.set('errorMessage', reason.error || reason);
        });
      },
-     
+
   }
 
 });
