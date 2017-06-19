@@ -6,7 +6,8 @@ export default Ember.Service.extend({
   session: service('session'),
   store: service(),
 
-  load() {
+  init() {
+    this._super(...arguments);
     let userId = this.get('session.data.authenticated.user_id');
     if (!isEmpty(userId)) {
       return this.get('store').findRecord('user', userId).then((user) => {

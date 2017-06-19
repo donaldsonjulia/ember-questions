@@ -13,9 +13,7 @@
   </form>
 {{/unless}}
 {{#if session.isAuthenticated}}
-  {{#if currentUser.user}}
   <div class="flash-notice">
-    <p>Logged in as {{currentUser.user.name}}. <a {{action 'invalidateSession'}} data-test-logout-link>Logout</a></p>
+    <span>Currently logged in as <span data-test-current-username>{{currentUser.user.username}}</span>. <a {{action 'invalidateSession'}} data-test-logout-link>Logout</a></span>
   </div>
-  {{/if}}
 {{/if}}

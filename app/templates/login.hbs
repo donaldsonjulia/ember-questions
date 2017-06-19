@@ -1,4 +1,6 @@
-{{c-route-title-header title="LOGIN"}}
+{{#if (eq session.isAuthenticated false)}}
+  {{c-route-title-header title="LOGIN"}}
+{{/if}}
 
 {{c-login-form}}
 
