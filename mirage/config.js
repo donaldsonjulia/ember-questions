@@ -8,15 +8,20 @@ export default function() {
   this.post('/token', (schema, request) => {
     let req = JSON.parse(request.requestBody);
     let username = req.auth.username;
-    let password = req.auth.password;
-    let user_id = 1;  //how to get user_id dynamically from login credentials?
+    
+    let [user] = schema.users.where({username}).models;
 
-    if(password === 'test123') {
-      return new Mirage.Response(201, {}, { jwt: 'mirageToken', user_id });
-    } else {
+    if (!user) {
+      // return an error because a user was not found for given username
+      return new Mirage.Response(404, {}, 'Username does not exist.');
+    }
+
+    if (user.attrs.password !== req.auth.password) {
+      // return error for mismatched credentials
       return new Mirage.Response(404, {}, 'Invalid username and password.');
     }
 
+    return new Mirage.Response(201, {}, { jwt: 'mirageToken', user_id: user.id });
   });
 
   this.get('/questions/:id');

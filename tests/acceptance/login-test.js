@@ -110,9 +110,10 @@ test('user can logout from header', function(assert) {
 });
 
 test('if user inputs incorrect credentials, they see error message', function(assert) {
+  server.create('user', { username: 'JuliaD', password: 'test123' });
   invalidateSession(this.application);
   visit('/login');
-  fillIn(testSelector('username-input'), 'wrongName');
+  fillIn(testSelector('username-input'), 'JuliaD');
   fillIn(testSelector('password-input'), 'wrongPassword');
   click(testSelector('login-btn'));
 

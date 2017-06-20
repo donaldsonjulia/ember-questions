@@ -9,7 +9,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   currentUser: service(),
 
   beforeModel() {
-    return this._loadCurrentUser(); //creates a 'gap' between login form disappearing and transitioning ?, so user sees logout alert first
+    return this._loadCurrentUser(); //creates a 'gap' page flash between login form disappearing and transitioning ???
   },
 
   sessionAuthenticated() {
@@ -19,7 +19,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
   _loadCurrentUser() {
     return this.get('currentUser').load().catch(() => this.get('session').invalidate());
-    // above statement makes login test fail currently i think
   }
 
 });

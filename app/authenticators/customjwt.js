@@ -41,7 +41,7 @@ export default Base.extend({
     return new Promise((resolve, reject) => {
       ajax(requestOptions).then((response) => {
         let { jwt, user_id } = response;
-        run((response) => { resolve({ token: jwt, user_id }); });
+        run(() => { resolve({ token: jwt, user_id }); });
       }, (error) => {
         run(() => { reject(error); });
       });
