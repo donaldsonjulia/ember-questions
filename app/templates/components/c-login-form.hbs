@@ -1,7 +1,7 @@
 {{#unless session.isAuthenticated}}
   <form {{action 'login' on='submit'}} class="c-login-form {{media.classNames}}" data-test-login-form>
     {{#if errorMessage}}
-      <div class="flash-error">
+      <div class="flash-error" data-test-login-error>
         <span>{{errorMessage}}</span>
       </div>
     {{/if}}
@@ -14,8 +14,9 @@
 {{/unless}}
 {{#if session.isAuthenticated}}
   {{#if currentUser.user}}
-  <div class="flash-notice">
-    <span data-test-current-username>Currently logged in as {{currentUser.user.username}}</span>. <a {{action 'logout'}} data-test-logout-link class="flash-notice__single-link">Logout</a>
-  </div>
+    <div class="flash-notice">
+      <span data-test-current-username>Currently logged in as {{currentUser.user.username}}.</span>
+      <a {{action 'logout'}} data-test-logout-link class="flash-notice__single-link">Logout</a>
+    </div>
   {{/if}}
 {{/if}}

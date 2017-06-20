@@ -1,6 +1,7 @@
 export default function(server) {
 
-  server.createList('user', 5); // total 5 fake users
+  server.createList('user', 5); // 5 fake users
+  server.create('user', { username: 'Julia', password: 'test123' }); // 1 user for manual testing
 
   server.createList('question', 10, { authorId: 1 });
   server.createList('question', 10, { authorId: 2 });

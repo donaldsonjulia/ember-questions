@@ -5,14 +5,20 @@ const {
   RSVP: { Promise },
   $: { ajax },
   run,
-  get
+  isEmpty
 } = Ember;
 
 export default Base.extend({
   serverTokenEndpoint: 'api/token',
 
   restore(data) {
-    debugger;
+    return new Promise((resolve, reject) => {
+      if (!isEmpty(data.token)) {
+        resolve(data);
+      } else {
+        reject();
+      }
+    });
   },
 
   authenticate(creds) {
@@ -23,7 +29,7 @@ export default Base.extend({
         password
       }
     });
-    debugger;
+
     let requestOptions = {
       url: this.get('serverTokenEndpoint'),
       type: 'POST',

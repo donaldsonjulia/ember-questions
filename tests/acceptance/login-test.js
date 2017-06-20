@@ -49,7 +49,7 @@ test('if user is logged in, the alert tells them who they are logged-in as', fun
   visit('/login');
   andThen(() => {
     let currentUsernameDisplayed = find(testSelector('current-username')).text().trim();
-    assert.equal(currentUsernameDisplayed, 'Currently logged in as JuliaD', 'page alert shows current username next to logout link');
+    assert.equal(currentUsernameDisplayed, 'Currently logged in as JuliaD.', 'page alert shows current username next to logout link');
   });
 });
 
@@ -110,5 +110,17 @@ test('user can logout from header', function(assert) {
 });
 
 test('if user inputs incorrect credentials, they see error message', function(assert) {
+  invalidateSession(this.application);
+  visit('/login');
+  fillIn(testSelector('username-input'), 'wrongName');
+  fillIn(testSelector('password-input'), 'wrongPassword');
+  click(testSelector('login-btn'));
+
+  andThen(() => {
+    let loginErrorMessageExists = find(testSelector('login-error')).length > 0 ? true : false;
+    let loginErrorMessage = find(testSelector('login-error')).text().trim();
+    assert.equal(loginErrorMessageExists, true, 'login error flash displays if incorrect credentials');
+    assert.equal(loginErrorMessage, 'Invalid username and password.', 'error message displays correctly');
+  });
 
 });

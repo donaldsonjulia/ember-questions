@@ -2,7 +2,7 @@ import Ember from 'ember';
 const {
   computed,
   isEmpty,
-  inject: {service}
+  inject: { service }
 } = Ember;
 
 export default Ember.Component.extend({
@@ -24,9 +24,9 @@ export default Ember.Component.extend({
      login() {
        this.set('errorMessage', false); //reset error on each login attempt
        let { identification, password } = this.getProperties('identification', 'password');
-       debugger;
+
        this.get('session').authenticate('authenticator:customjwt', { identification, password }).catch((reason) => {
-         this.set('errorMessage', reason.error || reason);
+         this.set('errorMessage', reason.responseText || reason);
        });
      },
      logout() {

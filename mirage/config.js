@@ -13,7 +13,7 @@ export default function() {
     if(password === 'test123') {
       return new Mirage.Response(201, {}, { jwt: 'mirageToken'});
     } else {
-      return new Mirage.Response(404, {}, { error: 'Incorrect Password'});
+      return new Mirage.Response(404, {}, 'Invalid username and password.');
     }
 
   });
