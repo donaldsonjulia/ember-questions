@@ -1,19 +1,21 @@
 {{#unless session.isAuthenticated}}
-  <form {{action 'authenticate' on='submit'}} class="c-login-form {{media.classNames}}" data-test-login-form>
+  <form {{action 'login' on='submit'}} class="c-login-form {{media.classNames}}" data-test-login-form>
     {{#if errorMessage}}
       <div class="flash-error">
         <span>{{errorMessage}}</span>
       </div>
     {{/if}}
     <label for="identification">USERNAME</label>
-    {{input id='identification' placeholder='Enter Username' value=identification}}
+    {{input placeholder='Enter Username' value=identification data-test-username-input=true}}
     <label for="password">PASSWORD</label>
-    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-    <button type="submit" class="c-login-form__btn">LOGIN</button>
+    {{input placeholder='Enter Password' type='password' value=password data-test-password-input=true}}
+    <button type="submit" class="c-login-form__btn" data-test-login-btn>LOGIN</button>
   </form>
 {{/unless}}
 {{#if session.isAuthenticated}}
+  {{#if currentUser.user}}
   <div class="flash-notice">
-    <span>Currently logged in as <span data-test-current-username>{{currentUser.user.username}}</span>. <a {{action 'invalidateSession'}} data-test-logout-link>Logout</a></span>
+    <span data-test-current-username>Currently logged in as {{currentUser.user.username}}</span>. <a {{action 'logout'}} data-test-logout-link class="flash-notice__single-link">Logout</a>
   </div>
+  {{/if}}
 {{/if}}

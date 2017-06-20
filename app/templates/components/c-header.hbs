@@ -47,7 +47,7 @@
           )}}
 
           {{#if session.isAuthenticated}}
-            <a {{action 'invalidateSession'}} class="nav__link" data-test-header-logout-link>LOGOUT</a>
+            <a {{action 'logout'}} class="nav__link" data-test-header-logout-link>LOGOUT</a>
 
           {{else}}
 

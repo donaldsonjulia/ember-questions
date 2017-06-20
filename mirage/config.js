@@ -7,10 +7,11 @@ export default function() {
 
   this.post('/token', (schema, request) => {
     let req = JSON.parse(request.requestBody);
-    let password = req.password;
+    let username = req.auth.username;
+    let password = req.auth.password;
 
-    if(password === 'julia') {
-      return new Mirage.Response(201, {}, { jwt: 'testToken'});
+    if(password === 'test123') {
+      return new Mirage.Response(201, {}, { jwt: 'mirageToken'});
     } else {
       return new Mirage.Response(404, {}, { error: 'Incorrect Password'});
     }

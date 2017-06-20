@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     doSearch(searchTerm) {
       this.get('search').doSearch(searchTerm);
     },
-    invalidateSession() {
+    logout() {
       this.get('session').invalidate();
     },
   }

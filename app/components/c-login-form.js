@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   session: service(),
   currentUser: service('current-user'),
 
-  login: '',
+  identification: '',
   password: '',
 
   loginFormInvalid: computed('login', 'password', function() {
@@ -21,11 +21,16 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    authenticate() {
+     login() {
+       this.set('errorMessage', false); //reset error on each login attempt
        let { identification, password } = this.getProperties('identification', 'password');
-       this.get('session').authenticate('authenticator:oauth2', identification, password).catch((reason) => {
+       debugger;
+       this.get('session').authenticate('authenticator:customjwt', { identification, password }).catch((reason) => {
          this.set('errorMessage', reason.error || reason);
        });
+     },
+     logout() {
+       this.get('session').invalidate();
      },
 
   }

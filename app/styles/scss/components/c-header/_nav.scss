@@ -28,6 +28,7 @@
     display: inline;
     font-family: $heading-font-family;
     margin-left: 20px;
+    cursor: pointer;
 
     &:hover {
       color: $action-color;
