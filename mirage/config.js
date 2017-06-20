@@ -9,9 +9,10 @@ export default function() {
     let req = JSON.parse(request.requestBody);
     let username = req.auth.username;
     let password = req.auth.password;
+    let user_id = 1;  //how to get user_id dynamically from login credentials?
 
     if(password === 'test123') {
-      return new Mirage.Response(201, {}, { jwt: 'mirageToken'});
+      return new Mirage.Response(201, {}, { jwt: 'mirageToken', user_id });
     } else {
       return new Mirage.Response(404, {}, 'Invalid username and password.');
     }

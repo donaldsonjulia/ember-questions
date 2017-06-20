@@ -55,7 +55,7 @@ test('if user is logged in, the alert tells them who they are logged-in as', fun
 
 
 test('user can login', function(assert) {
-  server.create('user', { username: 'Lucia123', password: 'test123'});
+  server.create('user', { username: 'JuliaD', password: 'test123'});
   invalidateSession(this.application);
   visit('/login');
   fillIn(testSelector('username-input'), 'JuliaD');
