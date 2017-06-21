@@ -15,6 +15,8 @@
             tetherTarget="body"
             targetAttachment="top right"
             attachment="top right"
+            containerClass="mobile-nav__modal-dialog-container"
+            overlayClass="mobile-nav__modal-overlay"
           }}
 
             <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
@@ -46,7 +48,15 @@
             link-to=(component "link-to" class="nav__link")
           )}}
 
+          {{#unless media.isMobile}}
+
+            {{c-search-bar onSubmit=(action "doSearch") searchTerm=search.searchTerm class="nav__link"}}
+
+          {{/unless}}
+
           {{#if session.isAuthenticated}}
+
+            {{link-to "ACCOUNT" "account" class="nav__link"}}
             <a {{action 'logout'}} class="nav__link" data-test-header-logout-link>LOGOUT</a>
 
           {{else}}
@@ -54,12 +64,6 @@
             {{link-to "LOGIN" "login" class="nav__link" data-test-header-login-link=true}}
 
           {{/if}}
-
-          {{#unless media.isMobile}}
-
-            {{c-search-bar onSubmit=(action "doSearch") searchTerm=search.searchTerm class="nav__link"}}
-
-          {{/unless}}
 
         </div>
 

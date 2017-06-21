@@ -16,6 +16,7 @@ const {
 moduleForAcceptance('Acceptance | login', {
   afterEach() {
     server.shutdown();
+    invalidateSession(this.application);  //adding this here also to hopefully avoid issues?
   }
 });
 
