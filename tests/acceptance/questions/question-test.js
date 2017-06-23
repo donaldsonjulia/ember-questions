@@ -55,5 +55,15 @@ test('if user is logged in, they can post answer', function(assert) {
 });
 
 test('if user is not logged in, they see a link to login instead of answer form', function(assert) {
+  server.create('question');
+  invalidateSession(this.application);
+  visit('/questions/1');
 
+  andThen(() => {
+    let formExists = find(testSelector('answer-form')).length > 0;
+    let loginNoticeExists = find(testSelector('login-notice')).length > 0;
+
+    assert.equal(formExists, false, 'answer form does not display to user who is not logged in');
+    assert.equal(loginNoticeExists, true, 'displays link to login in place of form if user is not logged in');
+  });
 });

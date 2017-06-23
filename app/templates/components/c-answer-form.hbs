@@ -1,6 +1,6 @@
 {{#if session.isAuthenticated}}
 
-  <form class="c-answer-form__form" {{action "postAnswer" on="submit"}}>
+  <form class="c-answer-form__form" {{action "postAnswer" on="submit"}} data-test-answer-form>
       <legend>POST AN ANSWER:</legend>
 
       <div class="md__container">
@@ -28,7 +28,7 @@
 
 {{else}}
 
-  <div class="c-answer-form__flash flash-notice">
+  <div class="c-answer-form__flash flash-notice" data-test-login-notice>
     <span>{{#link-to 'login'}}Login{{/link-to}} to post an answer.</span>
   </div>
 
