@@ -34,5 +34,18 @@ test('if user is logged in, can post new question', function(assert) {
     assert.equal(find(testSelector('question-id'))[0], find(testSelector('question-id', 6))[0], 'displays the newly created question first because it is the newest question');
   });
 
+});
+
+test('if user is not logged in, they cannot post and instead see link to login', function(assert) {
+  invalidateSession(this.application);
+  visit('questions/new');
+
+  andThen(() => {
+    let questionFormExists = find(testSelector('new-question-form')).length > 0;
+    let loginNoticeExists = find(testSelector('login-notice')).length > 0;
+
+    assert.equal(questionFormExists, false, 'question form does not display if user is not logged in');
+    assert.equal(loginNoticeExists, true, 'displays link to login');
+  });
 
 });

@@ -2,8 +2,7 @@
 
 {{#if session.isAuthenticated}}
 
-  <form class="new-question-form" {{action "createQuestion" on="submit"}}>
-      {{input type="text" placeholder="Your name" value=author data-test-author-input=true}}
+  <form class="new-question-form" {{action "createQuestion" on="submit"}} data-test-new-question-form>
       {{input type="text" placeholder="Subject" value=subject data-test-subject-input=true}}
       <div class="md__container">
         {{#mobiledoc-editor on-change=(action 'mobiledocWasUpdated') as |editor|}}
@@ -30,8 +29,8 @@
 
 {{else}}
 
-  <div class="new-question-form__flash flash-notice">
-    <span data-test-current-username>Please {{#link-to 'login'}}login{{/link-to}} to post a new question.</span>
+  <div class="new-question-form__flash flash-notice" data-test-login-notice>
+    <span>Please {{#link-to 'login'}}login{{/link-to}} to post a new question.</span>
   </div>
 
 {{/if}}
