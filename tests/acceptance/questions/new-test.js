@@ -2,6 +2,11 @@ import { test } from 'qunit';
 import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
 import testSelector from 'ember-test-selectors';
 import { insertText, run } from '../../helpers/ember-mobiledoc-editor';
+import {
+  currentSession,
+  invalidateSession,
+  authenticateSession
+} from 'questions/tests/helpers/ember-simple-auth';
 
 moduleForAcceptance('Acceptance | questions/new', {
   afterEach() {
@@ -9,13 +14,14 @@ moduleForAcceptance('Acceptance | questions/new', {
 }
 });
 
-test('can post new question', function(assert) {
+test('if user is logged in, can post new question', function(assert) {
   server.createList('question', 5);
+  server.create('user');
+  authenticateSession(this.application, { user_id: 1 });
 
   visit('questions/new');
-
-  fillIn(testSelector('author-input'), 'Lucia');
   fillIn(testSelector('subject-input'), 'Hola!');
+
   andThen(() => {
     let editorEl = find('.mobiledoc-editor__editor')[0];
     return insertText(editorEl, 'some text I wrote');

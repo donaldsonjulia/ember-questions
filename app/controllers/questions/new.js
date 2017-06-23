@@ -2,29 +2,29 @@ import Ember from 'ember';
 
 const {
   isEmpty,
-  computed
+  computed,
+  inject: { service }
 } = Ember;
 
 export default Ember.Controller.extend({
+
+  session: service('session'),
 
   init() {
     this._super(...arguments);
     this.set('mobiledocObj', null);
   },
 
-
   // form input values for createQuestion action on 'questions.new' route
-    author: '',
     subject: '',
 
 
   // prevents empty form submission by disabling submit button
-    questionFormInvalid: computed('author', 'subject', 'mobiledocObj', function() {
-      let author = this.get('author');
+    questionFormInvalid: computed('subject', 'mobiledocObj', function() {
       let subject = this.get('subject');
       let content = this.get('mobiledocObj');
 
-      return isEmpty(author) || isEmpty(subject) || isEmpty(content);
+      return isEmpty(subject) || isEmpty(content);
     }),
 
     actions: {

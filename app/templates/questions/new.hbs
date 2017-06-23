@@ -1,30 +1,37 @@
 {{c-route-title-header title="ASK A QUESTION"}}
 
-<form class="new-question-form" {{action "createQuestion" on="submit"}}>
-  <fieldset>
-    <legend>ASK A NEW QUESTION:</legend>
-    {{input type="text" placeholder="Your name" value=author data-test-author-input=true}}
-    {{input type="text" placeholder="Subject" value=subject data-test-subject-input=true}}
-    <div class="md__container">
-      {{#mobiledoc-editor on-change=(action 'mobiledocWasUpdated') as |editor|}}
-        <div class="md__toolbar">
-          <div class="md__toolbar-section">
-            {{#mobiledoc-markup-button editor=editor for="strong"}}{{fa-icon  "bold"}}{{/mobiledoc-markup-button}}
-            {{#mobiledoc-markup-button editor=editor for="em"}}{{fa-icon  "italic"}}{{/mobiledoc-markup-button}}
-          </div>
-          <div class="md__toolbar-section">
-            {{#mobiledoc-section-button editor=editor for="h1"}}{{fa-icon "header"}}{{/mobiledoc-section-button}}
-            {{#mobiledoc-section-button editor=editor for="ul"}}{{fa-icon "list-ul"}}{{/mobiledoc-section-button}}
-            {{#mobiledoc-section-button editor=editor for="ol"}}{{fa-icon "list-ol"}}{{/mobiledoc-section-button}}
-          </div>
-          <div class="md__toolbar-section">
-            {{#mobiledoc-link-button editor=editor}}{{fa-icon "link"}}{{/mobiledoc-link-button}}
-            {{#mobiledoc-markup-button editor=editor for="code"}}{{fa-icon  "code"}}{{/mobiledoc-markup-button}}
-          </div>
-        </div>
-      {{/mobiledoc-editor}}
-    </div>
-  </fieldset>
+{{#if session.isAuthenticated}}
 
-  <button type="submit" disabled={{questionFormInvalid}} data-test-submit-btn>SUBMIT</button>
-</form>
+  <form class="new-question-form" {{action "createQuestion" on="submit"}}>
+      {{input type="text" placeholder="Your name" value=author data-test-author-input=true}}
+      {{input type="text" placeholder="Subject" value=subject data-test-subject-input=true}}
+      <div class="md__container">
+        {{#mobiledoc-editor on-change=(action 'mobiledocWasUpdated') as |editor|}}
+          <div class="md__toolbar">
+            <div class="md__toolbar-section">
+              {{#mobiledoc-markup-button editor=editor for="strong"}}{{fa-icon  "bold"}}{{/mobiledoc-markup-button}}
+              {{#mobiledoc-markup-button editor=editor for="em"}}{{fa-icon  "italic"}}{{/mobiledoc-markup-button}}
+            </div>
+            <div class="md__toolbar-section">
+              {{#mobiledoc-section-button editor=editor for="h1"}}{{fa-icon "header"}}{{/mobiledoc-section-button}}
+              {{#mobiledoc-section-button editor=editor for="ul"}}{{fa-icon "list-ul"}}{{/mobiledoc-section-button}}
+              {{#mobiledoc-section-button editor=editor for="ol"}}{{fa-icon "list-ol"}}{{/mobiledoc-section-button}}
+            </div>
+            <div class="md__toolbar-section">
+              {{#mobiledoc-link-button editor=editor}}{{fa-icon "link"}}{{/mobiledoc-link-button}}
+              {{#mobiledoc-markup-button editor=editor for="code"}}{{fa-icon  "code"}}{{/mobiledoc-markup-button}}
+            </div>
+          </div>
+        {{/mobiledoc-editor}}
+      </div>
+
+    <button class="new-question-form__submit-btn" type="submit" disabled={{questionFormInvalid}} data-test-submit-btn>SUBMIT</button>
+  </form>
+
+{{else}}
+
+  <div class="new-question-form__flash flash-notice">
+    <span data-test-current-username>Please {{#link-to 'login'}}login{{/link-to}} to post a new question.</span>
+  </div>
+
+{{/if}}

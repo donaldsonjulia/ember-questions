@@ -3,7 +3,12 @@ import { test } from 'qunit';
 import Ember from 'ember';
 import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
 import testSelector from 'ember-test-selectors';
-import { insertText, run } from '../../helpers/ember-mobiledoc-editor';
+import { insertText } from '../../helpers/ember-mobiledoc-editor';
+import {
+  currentSession,
+  invalidateSession,
+  authenticateSession
+} from 'questions/tests/helpers/ember-simple-auth';
 
 moduleForAcceptance('Acceptance | questions/question', {
   afterEach() {
@@ -23,15 +28,19 @@ test('displays correct amount of answers', function(assert){
 
 });
 
-test('can post answer', function(assert) {
+test('if user is logged in, they can post answer', function(assert) {
+
+  server.create('user', { username: 'JuliaD' });
+  authenticateSession(this.application, {user_id: 1});
+
   let question = server.create('question');
+
   server.createList('answer', 3, { questionId: question.id });
 
-  let author = 'Lucia';
   let text = 'This is a test answer';
 
   visit('/questions/' + question.id);
-  fillIn(testSelector('author-input'), author);
+
   andThen(() => {
     let editorEl = find('.mobiledoc-editor__editor')[0];
     return insertText(editorEl, text);
@@ -41,5 +50,10 @@ test('can post answer', function(assert) {
 
   andThen(() => {
     assert.equal(find(testSelector('answer')).length, 4, 'displays newly posted answer');
+    assert.equal(find('.mobiledoc-editor__editor').text().trim(), '', 'mobiledoc clears after submitting answer');
   });
+});
+
+test('if user is not logged in, they see a link to login instead of answer form', function(assert) {
+
 });

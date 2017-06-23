@@ -1,7 +1,10 @@
 import Ember from 'ember';
 
+// const { inject: { service } } = Ember;
+
 export default Ember.Route.extend({
 
+  // session: service('session'),
 
   actions: {
     createQuestion() {
@@ -18,6 +21,7 @@ export default Ember.Route.extend({
       });
 
       newQuestion.save().then(() => {
+        debugger;
         controller.set('author', '');
         controller.set('subject', '');
         controller.set('mobiledocObj', null);
