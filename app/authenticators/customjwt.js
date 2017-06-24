@@ -9,7 +9,7 @@ const {
 } = Ember;
 
 export default Base.extend({
-  serverTokenEndpoint: 'api/token',
+  serverTokenEndpoint: '/api/token',
 
   restore(data) {
     return new Promise((resolve, reject) => {

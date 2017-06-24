@@ -1,9 +1,8 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'questions/tests/helpers/module-for-acceptance';
 import testSelector from 'ember-test-selectors';
-import { insertText, run } from '../../helpers/ember-mobiledoc-editor';
+import { insertText } from '../../helpers/ember-mobiledoc-editor';
 import {
-  currentSession,
   invalidateSession,
   authenticateSession
 } from 'questions/tests/helpers/ember-simple-auth';
