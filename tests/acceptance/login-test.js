@@ -16,7 +16,6 @@ const {
 moduleForAcceptance('Acceptance | login', {
   afterEach() {
     server.shutdown();
-    invalidateSession(this.application);  //adding this here also to hopefully avoid issues?
   }
 });
 
@@ -121,7 +120,7 @@ test('if user inputs incorrect credentials, they see error message', function(as
   andThen(() => {
     let loginErrorMessageExists = find(testSelector('login-error')).length > 0 ? true : false;
     let loginErrorMessage = find(testSelector('login-error')).text().trim();
-    assert.equal(loginErrorMessageExists, true, 'login error flash displays if incorrect credentials');
+    assert.ok(loginErrorMessageExists, 'login error flash displays if incorrect credentials');
     assert.equal(loginErrorMessage, 'Invalid username and password.', 'error message displays correctly');
   });
 

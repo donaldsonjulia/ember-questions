@@ -36,3 +36,14 @@ $flashes: (
     }
   }
 }
+
+.flash-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__spinner {
+    padding: 2em;
+    color: $action-color;
+  }
+}

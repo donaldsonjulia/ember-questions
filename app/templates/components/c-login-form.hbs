@@ -1,22 +1,12 @@
-{{#unless session.isAuthenticated}}
-  <form {{action 'login' on='submit'}} class="c-login-form {{media.classNames}}" data-test-login-form>
-    {{#if errorMessage}}
-      <div class="flash-error" data-test-login-error>
-        <span>{{errorMessage}}</span>
-      </div>
-    {{/if}}
-    <label for="identification">USERNAME</label>
-    {{input placeholder='Enter Username' value=identification data-test-username-input=true}}
-    <label for="password">PASSWORD</label>
-    {{input placeholder='Enter Password' type='password' value=password data-test-password-input=true}}
-    <button type="submit" class="c-login-form__btn" data-test-login-btn>LOGIN</button>
-  </form>
-{{/unless}}
-{{#if session.isAuthenticated}}
-  {{#if currentUser.user}}
-    <div class="flash-notice">
-      <span data-test-current-username>Currently logged in as {{currentUser.user.username}}.</span>
-      <a {{action 'logout'}} data-test-logout-link class="flash-notice__single-link">Logout</a>
+<form {{action 'login' on='submit'}} class="c-login-form {{media.classNames}}" data-test-login-form>
+  {{#if errorMessage}}
+    <div class="flash-error" data-test-login-error>
+      <span>{{errorMessage}}</span>
     </div>
   {{/if}}
-{{/if}}
+  <label for="identification">USERNAME</label>
+  {{input placeholder='Enter Username' value=identification data-test-username-input=true}}
+  <label for="password">PASSWORD</label>
+  {{input placeholder='Enter Password' type='password' value=password data-test-password-input=true}}
+  <button type="submit" class="c-login-form__btn" data-test-login-btn disabled={{loginFormInvalid}}>LOGIN</button>
+</form>

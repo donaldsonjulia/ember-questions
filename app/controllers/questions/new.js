@@ -2,13 +2,10 @@ import Ember from 'ember';
 
 const {
   isEmpty,
-  computed,
-  inject: { service }
+  computed
 } = Ember;
 
 export default Ember.Controller.extend({
-
-  session: service('session'),
 
   init() {
     this._super(...arguments);

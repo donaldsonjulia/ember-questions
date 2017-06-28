@@ -13,11 +13,11 @@ export default Ember.Component.extend({
   identification: '',
   password: '',
 
-  loginFormInvalid: computed('login', 'password', function() {
-    let login = this.get('login');
+  loginFormInvalid: computed('identification', 'password', function() {
+    let identification = this.get('identification');
     let password = this.get('password');
 
-    return isEmpty(login) || isEmpty(password);
+    return isEmpty(identification) || isEmpty(password);
   }),
 
   actions: {
@@ -25,14 +25,12 @@ export default Ember.Component.extend({
        this.set('errorMessage', false); //reset error on each login attempt
        let { identification, password } = this.getProperties('identification', 'password');
 
-       this.get('session').authenticate('authenticator:customjwt', { identification, password }).catch((reason) => {
-         this.set('errorMessage', reason.responseText || reason);
+       this.get('onSubmit')(identification, password)
+       .catch((error) => {
+          this.set('errorMessage', error.responseText);
        });
-     },
-     logout() {
-       this.get('session').invalidate();
-     },
-
+       
+     }
   }
 
 });

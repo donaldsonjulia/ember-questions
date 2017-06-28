@@ -6,7 +6,7 @@ const {
 } = Ember;
 
 export default Base.extend({
-  session: service(),
+  session: service('session'),
 
   authorize(data, block) {
     let { token } = data;
