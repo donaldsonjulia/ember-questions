@@ -1,9 +1,9 @@
 
   <div class="c-comment__image">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png">
+    <img src={{comment.author.avatar}}>
   </div>
   <div class="c-comment__content">
-    <h1>{{comment.author}} says:</h1>
+    <h1>{{comment.author.username}} says:</h1>
     {{render-mobiledoc mobiledoc=comment.mobiledoc}}
     {{yield}}
     <p class="c-comment__detail">posted on {{comment.formattedDate}}</p>

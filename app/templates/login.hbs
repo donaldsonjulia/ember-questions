@@ -1,0 +1,11 @@
+{{#if currentUser.user}}
+  <div class="flash-notice">
+    <span data-test-current-username>Currently logged in as {{currentUser.user.username}}.</span>
+    <a {{action 'logout'}} data-test-logout-link class="flash-notice__single-link">Logout</a>
+  </div>
+{{else}}
+  {{c-route-title-header title="LOGIN"}}
+  {{c-login-form onSubmit=(perform authenticate)}}
+{{/if}}
+
+{{outlet}}

@@ -1,7 +1,7 @@
 import { JSONAPISerializer } from 'ember-cli-mirage';
 import Ember from 'ember';
 import moment from 'moment';
-const { get, copy, isPresent, set} = Ember;
+const { get, isPresent, set} = Ember;
 
 export default JSONAPISerializer.extend({
 

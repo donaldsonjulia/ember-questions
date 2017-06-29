@@ -6,46 +6,69 @@
 
     {{#if media.isMobile}}
 
-      <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">☰</button>
+      <button {{action (mut isShowingNav) true}} class="mobile-nav__menu-icon">{{fa-icon 'navicon'}}</button>
 
       {{#if isShowingNav}}
 
-        {{#modal-dialog
-          onClose=(action (mut isShowingNav) false)
-          tetherTarget="body"
-          targetAttachment="top right"
-          attachment="top right"
-        }}
+          {{#modal-dialog
+            onClose=(action (mut isShowingNav) false)
+            tetherTarget="body"
+            targetAttachment="top right"
+            attachment="top right"
+            containerClass="mobile-nav__modal-dialog-container"
+            overlayClass="mobile-nav__modal-overlay"
+          }}
 
-          <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
+            <div {{action (mut isShowingNav) false}} class="mobile-nav__inner">
 
-            {{yield (hash
-              link-to=(component "link-to" class="mobile-nav__link")
-            )}}
+              {{yield (hash
+                link-to=(component "link-to" class="mobile-nav__link")
+              )}}
 
-          </div>
+              {{#if session.isAuthenticated}}
+                <a {{action "invalidateSession"}} class="mobile-nav__link">LOGOUT</a>
 
-        {{/modal-dialog}}
+              {{else}}
+
+                {{link-to "LOGIN" "login" class="mobile-nav__link"}}
+
+              {{/if}}
+
+            </div>
+
+          {{/modal-dialog}}
 
       {{/if}}
 
       {{else}}
 
-      <div class="nav__menu">
+        <div class="nav__menu">
 
-        {{yield (hash
-          link-to=(component "link-to" class="nav__link")
-        )}}
+          {{yield (hash
+            link-to=(component "link-to" class="nav__link")
+          )}}
 
-        {{#unless media.isMobile}}
+          {{#unless media.isMobile}}
 
-          {{c-search-bar onSubmit=(action 'doSearch') searchTerm=search.searchTerm class="nav__link"}}
+            {{c-search-bar onSubmit=(action "doSearch") searchTerm=search.searchTerm class="nav__link"}}
 
-        {{/unless}}
+          {{/unless}}
 
-      </div>
+          {{#if session.isAuthenticated}}
+
+            {{link-to "ACCOUNT" "account" class="nav__link"}}
+            <a {{action 'logout'}} class="nav__link" data-test-header-logout-link>LOGOUT</a>
+
+          {{else}}
+
+            {{link-to "LOGIN" "login" class="nav__link" data-test-header-login-link=true}}
+
+          {{/if}}
+
+        </div>
 
     {{/if}}
+
 
 
   </nav>

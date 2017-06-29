@@ -9,9 +9,18 @@
   margin-top: 1em;
   margin-bottom: 1em;
 
-  button[type="submit"] {
+  &__submit-btn {
     float: right;
     margin-top: 1em;
+  }
+
+  &__flash {
+    @include grid-column(1, $single-grid);
+
+    @include grid-media($medium-up-grid) {
+    @include grid-column(8);
+    @include grid-shift(2);
+  }
   }
 
 }

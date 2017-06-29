@@ -1,6 +1,6 @@
 <form {{action 'submitSearch' localSearchTerm on="submit"}}>
   {{input type="search" value=localSearchTerm placeholder="Search..."}}
-  <button type="submit">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png" alt="Search Icon">
+  <button type="submit" disabled={{formEmpty}}>
+    {{fa-icon 'search'}}
   </button>
 </form>

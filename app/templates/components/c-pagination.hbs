@@ -3,7 +3,7 @@
 
     {{#if hasPrev}}
       <li class="page-prev">
-        {{#link-to (query-params page=prevPage)}}
+        {{#link-to (query-params page=prevPage) data-test-prev-page-btn=true}}
           {{fa-icon 'angle-left'}}
           {{#unless media.isMobile}}<span>Prev</span>{{/unless}}
         {{/link-to}}
@@ -56,7 +56,7 @@
 
     {{#if hasNext}}
       <li class="page-next">
-        {{#link-to (query-params page=nextPage)}}
+        {{#link-to (query-params page=nextPage) data-test-next-page-btn=true}}
           {{fa-icon 'angle-right'}}
           {{#unless media.isMobile}}<span>Next</span>{{/unless}}
         {{/link-to}}
