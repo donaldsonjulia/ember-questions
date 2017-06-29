@@ -41,9 +41,9 @@ export default Ember.Component.extend({
       }).then(() => {
 
         this.setProperties({
-          mobiledoc: null 
+          mobiledoc: null
         });
-        
+
       }).catch((error) => {
         this.set('error', error);
       });

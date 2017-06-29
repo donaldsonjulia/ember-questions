@@ -3,17 +3,17 @@ import Base from 'ember-simple-auth/authenticators/base';
 
 const {
   RSVP: { Promise },
-  $: { ajax },
-  run,
-  isEmpty
+  inject: { service },
+  isPresent
 } = Ember;
 
 export default Base.extend({
   serverTokenEndpoint: '/api/token',
+  ajax: service(),
 
   restore(data) {
     return new Promise((resolve, reject) => {
-      if (!isEmpty(data.token)) {
+      if (isPresent(data.token)) {
         resolve(data);
       } else {
         reject();
@@ -23,29 +23,27 @@ export default Base.extend({
 
   authenticate(creds) {
     let { identification, password } = creds;
-    let data = JSON.stringify({
+    let data = {
       auth: {
         username: identification,
         password
       }
-    });
-
-    let requestOptions = {
-      url: this.get('serverTokenEndpoint'),
-      type: 'POST',
-      data,
-      contentType: 'application/json',
-      dataType: 'json'
     };
 
-    return new Promise((resolve, reject) => {
-      ajax(requestOptions).then((response) => {
+    let url = this.get('serverTokenEndpoint');
+
+    return this.get('ajax').request(url, {
+        type: 'POST',
+        data,
+        contentType: 'application/json; charset=utf-8'
+      })
+      .then((response) => {
         let { jwt, user_id } = response;
-        run(() => { resolve({ token: jwt, user_id }); });
-      }, (error) => {
-        run(() => { reject(error); });
+        return {
+          token: jwt,
+          user_id
+        };
       });
-    });
   },
 
   invalidate(data) {

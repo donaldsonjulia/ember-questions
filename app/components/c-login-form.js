@@ -27,9 +27,9 @@ export default Ember.Component.extend({
 
        this.get('onSubmit')(identification, password)
        .catch((error) => {
-          this.set('errorMessage', error.responseText);
+          this.set('errorMessage', error.payload || 'Oops! A login error occurred.');
        });
-       
+
      }
   }
 
