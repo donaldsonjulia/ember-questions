@@ -16,7 +16,9 @@ Router.map(function() {
     this.route('search');
   });
   this.route('login');
-  this.route('account');
+  this.route('account', function() {
+    this.route('profile');
+  });
 });
 
 export default Router;

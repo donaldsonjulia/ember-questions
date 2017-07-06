@@ -1,0 +1,28 @@
+<div class="account-details">
+  <img src={{model.avatar}} class="account-details__avatar">
+  <ul>
+    <li>
+      <span class="account-details__label">Username:</span>
+      <span class="account-details__info">{{model.username}}</span>
+    </li>
+    <li>
+      <span class="account-details__label">Email:</span>
+      <span class="account-details__info">{{model.email}}</span>
+    </li>
+    <li>
+      <span class="account-details__label">First Name:</span>
+      <span class="account-details__info">{{model.name}}</span>
+    </li>
+    <li>
+      <span class="account-details__label">Last Name:</span>
+      <span class="account-details__info">{{model.surname}}</span>
+    </li>
+  </ul>
+</div>
+
+<ul>
+  <li><span>Questions asked: </span>{{model.questions.length}}</li>
+  <li><span>Questions answered: </span>{{model.answers.length}}</li>
+</ul>
+
+{{outlet}}
