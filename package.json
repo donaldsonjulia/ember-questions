@@ -53,9 +53,7 @@
     "ember-tether": "^1.0.0-beta.0",
     "ember-truth-helpers": "^1.3.0",
     "ember-welcome-page": "^2.0.2",
-    "eslint-plugin-prettier": "^2.1.2",
     "loader.js": "^4.4",
-    "prettier": "^1.5.2",
     "torii": "^0.9.5"
   },
   "engines": {

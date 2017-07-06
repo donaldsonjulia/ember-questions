@@ -11,10 +11,6 @@ module.exports = {
   env: {
     browser: true
   },
-  plugins: [
-    'prettier'
-  ],
   rules: {
-    'prettier/prettier': ['error', {singleQuote: true}]
   }
 };
