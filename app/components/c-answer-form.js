@@ -34,6 +34,7 @@ export default Ember.Component.extend({
       let question = this.get('question');
       let author = this.get('currentUser').user;
       let content = JSON.stringify(this.get('mobiledoc'));
+
       this.get('on-submit')({
         question,
         author,

@@ -33,8 +33,6 @@ test('if user is logged in, they can post answer', function(assert) {
 
   let question = server.create('question');
 
-  server.createList('answer', 3, { questionId: question.id });
-
   let text = 'This is a test answer';
 
   visit('/questions/' + question.id);
@@ -47,7 +45,29 @@ test('if user is logged in, they can post answer', function(assert) {
   click(testSelector('answer-submit'));
 
   andThen(() => {
-    assert.equal(find(testSelector('answer')).length, 4, 'displays newly posted answer');
+    assert.ok(find(testSelector('answer')).length, 1, 'displays newly posted answer');
+    assert.equal(find(testSelector('comment-author')).text().trim(), 'JuliaD says:');
+    assert.equal(find(testSelector('comment-text')).text().trim(), 'This is a test answer');
+  });
+});
+
+test('mobiledoc editor clears content after user submits answer', function(assert) {
+
+  server.create('user', { username: 'JuliaD' });
+  authenticateSession(this.application, {user_id: 1});
+
+  let question = server.create('question');
+
+  visit('/questions/' + question.id);
+
+  andThen(() => {
+    let editorEl = find('.mobiledoc-editor__editor')[0];
+    return insertText(editorEl, 'This is a test answer');
+  });
+
+  click(testSelector('answer-submit'));
+
+  andThen(() => {
     assert.equal(find('.mobiledoc-editor__editor').text().trim(), '', 'mobiledoc clears after submitting answer');
   });
 });
