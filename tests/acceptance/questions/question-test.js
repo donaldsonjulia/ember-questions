@@ -68,8 +68,17 @@ test('mobiledoc editor clears content after user submits answer', function(asser
   click(testSelector('answer-submit'));
 
   andThen(() => {
-    assert.equal(find('.mobiledoc-editor__editor').text().trim(), '', 'mobiledoc clears after submitting answer');
+    assert.equal(find('.mobiledoc-editor__editor').text().trim(), '', 'mobiledoc clears after submitting first answer');
+    let editorEl = find('.mobiledoc-editor__editor')[0];
+    return insertText(editorEl, 'This is a second test answer');
   });
+
+  click(testSelector('answer-submit'));
+
+  andThen(() => {
+    assert.equal(find('.mobiledoc-editor__editor').text().trim(), '', 'mobiledoc clears after submitting second answer');
+  });
+
 });
 
 test('if user is not logged in, they see a link to login instead of answer form', function(assert) {

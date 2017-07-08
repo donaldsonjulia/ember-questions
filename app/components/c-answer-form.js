@@ -6,6 +6,14 @@ const {
   inject: { service }
 } = Ember;
 
+let blankMobiledoc = {
+  version: "0.3.1",
+  markups: [],
+  atoms: [],
+  cards: [],
+  sections: []
+};
+
 export default Ember.Component.extend({
 
   classNames: ['c-answer-form'],
@@ -30,6 +38,7 @@ export default Ember.Component.extend({
   }),
 
   actions: {
+
     postAnswer() {
       let question = this.get('question');
       let author = this.get('currentUser').user;
@@ -41,9 +50,7 @@ export default Ember.Component.extend({
         content
       }).then(() => {
 
-        this.setProperties({
-          mobiledoc: null
-        });
+        this.set('mobiledoc', blankMobiledoc);
 
       }).catch((error) => {
         this.set('error', error);
