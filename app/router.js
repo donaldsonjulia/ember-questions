@@ -18,6 +18,8 @@ Router.map(function() {
   this.route('login');
   this.route('account', function() {
     this.route('profile');
+    this.route('my-questions');
+    this.route('my-answers');
   });
 });
 

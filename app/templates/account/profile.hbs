@@ -1,28 +1,47 @@
 <div class="account-details">
-  <img src={{model.avatar}} class="account-details__avatar">
-  <ul>
+  <div class="account-details__avatar">
+    <img src={{model.avatar}}>
+    <div class="account-details__avatar-edit">
+      {{fa-icon 'pencil'}}
+    </div>
+  </div>
+  <ul class="account-details__details">
+    {{profile-field
+        tagName="li"
+        user=model
+        field="username"
+        label="Username"
+        onUpdate=(action 'saveChange')
+    }}
+    {{profile-field
+        tagName="li"
+        user=model
+        field="name"
+        label="First Name"
+        onUpdate=(action 'saveChange')
+    }}
+    {{profile-field
+        tagName="li"
+        user=model
+        field="surname"
+        label="Last Name"
+        onUpdate=(action 'saveChange')
+    }}
+    {{profile-field
+        tagName="li"
+        user=model
+        field="email"
+        label="Email"
+        onUpdate=(action 'saveChange')
+    }}
     <li>
-      <span class="account-details__label">Username:</span>
-      <span class="account-details__info">{{model.username}}</span>
-    </li>
-    <li>
-      <span class="account-details__label">Email:</span>
-      <span class="account-details__info">{{model.email}}</span>
-    </li>
-    <li>
-      <span class="account-details__label">First Name:</span>
-      <span class="account-details__info">{{model.name}}</span>
-    </li>
-    <li>
-      <span class="account-details__label">Last Name:</span>
-      <span class="account-details__info">{{model.surname}}</span>
+      <span class="account-details__label">Password:</span>
+      <span class="account-details__info">* * * * * *</span>
+      <div class="account-details__edit">
+        {{fa-icon 'pencil'}}
+      </div>
     </li>
   </ul>
 </div>
-
-<ul>
-  <li><span>Questions asked: </span>{{model.questions.length}}</li>
-  <li><span>Questions answered: </span>{{model.answers.length}}</li>
-</ul>
 
 {{outlet}}

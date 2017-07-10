@@ -3,11 +3,4 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-model() {
-  let currentUserId = this.get('currentUser.user.id');
-  return this.store.findRecord('user', currentUserId, { include:'questions,answers' });
-}
-
-
-
 });

@@ -17,6 +17,7 @@ export default function() {
 
   this.get('/users');
   this.get('/users/:id');
+  this.patch('/users/:id');
 
   /* below is for response when using the customjwt authenticator for authentication*/
 

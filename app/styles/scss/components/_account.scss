@@ -1,0 +1,98 @@
+.account {
+  @include grid-column(1, $single-grid);
+  @include grid-media($medium-up-grid) {
+     @include grid-column(10);
+    @include grid-shift(1);
+  }
+
+  &__nav {
+    @include grid-collapse;
+    @include grid-container;
+
+    border-bottom: $base-border;
+  }
+
+  &__menu {
+    @include grid-column(1, $single-grid);
+    margin-bottom: $small-spacing;
+  }
+
+  &__link {
+    font-family: $heading-font-family;
+    color: $base-font-color;
+    margin-right: $base-spacing;
+
+    &:hover, &:active {
+      color: $action-color;
+    }
+  }
+
+  &__link.active {
+    border-bottom: 1px solid $base-font-color;
+    &:hover, &:active {
+      color: $base-font-color;
+    }
+  }
+
+  &__view {
+    @include grid-container;
+    @include grid-collapse;
+    padding: 10px;
+  }
+}
+
+.account-details {
+  &__avatar {
+    @include grid-column(1, $single-grid);
+    @include grid-media($medium-up-grid) {
+       @include grid-column(3.5);
+    }
+    position: relative;
+    width: 100%;
+
+    > img {
+      border-radius: $base-border-radius;
+      padding: 5px;
+      background-color: $theme-color;
+      width: 100%;
+    }
+
+    > div.account-details__avatar-edit {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      display: flex;
+      background-color: $theme-color;
+      padding: 8px;
+      border-radius: 3px;
+    }
+  }
+
+  &__details {
+    @include grid-column(1, $single-grid);
+    @include grid-media($medium-up-grid) {
+       @include grid-column(8.5);
+    }
+
+    li {
+      padding: $small-spacing 0;
+      border-bottom: $base-border;
+    }
+  }
+
+  &__label {
+    margin-right: 10px;
+    color: $theme-color;
+  }
+
+  &__info {
+
+  }
+
+  &__edit {
+    color: $theme-color;
+    display: inline-flex;
+    float: right;
+    padding: 8px;
+  }
+}

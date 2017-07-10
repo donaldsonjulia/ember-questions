@@ -1,0 +1,23 @@
+<span class="account-details__label">
+  {{label}}:
+</span>
+
+{{#if isEditing}}
+  <form>
+    {{#if showError}}
+      <span class="flash-error">Error!</span>
+    {{/if}}
+    {{input value=dirtyField type="text"}}
+    <button class="account-details__edit" {{action 'onSubmit' field dirtyField}}>
+      {{fa-icon 'check'}}
+    </button>
+    <button {{action 'cancelEdit'}}>Cancel</button>
+  </form>
+{{else}}
+  <span class="account-details__info">
+    {{get user field}}
+  </span>
+  <button class="account-details__edit" {{action 'editField'}}>
+    {{fa-icon 'pencil'}}
+  </button>
+{{/if}}

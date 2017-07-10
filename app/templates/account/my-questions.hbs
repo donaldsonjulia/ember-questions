@@ -1,0 +1,20 @@
+<table class="question-table question-table--account {{media.classNames}}">
+  {{#each model.questions as |question|}}
+        <tr data-test-question-id={{question.id}} class="question-table__question-row">
+          <td class="question-table__question-data question-table__question-data--answers">
+              <div class="answers" data-test-answer-amount-for={{question.id}}>
+                {{c-answer-amount amount=question.answers.length}}
+              </div>
+          </td>
+          <td class="question-table__question-data question-table__question-data--subject">
+              <h3>
+                {{#link-to "questions.question" question class="question-table__question-link" data-test-subject-link-for=question.id}}
+                  {{question.subject}}
+                {{/link-to}}
+              </h3>
+          </td>
+          <td class="question-table__question-data question-table__question-data--details"><p>posted by <span class="author" data-test-author-for={{question.id}}>{{question.author.username}}</span> on <span class="date" data-test-formatted-date-for={{question.id}}>{{question.formattedDate}}</span></p></td>
+        </tr>
+  {{/each}}
+</table>
+{{outlet}}

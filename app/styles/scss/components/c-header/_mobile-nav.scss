@@ -31,6 +31,13 @@
     }
   }
 
+  &__link.active {
+    border-bottom: 1px solid $base-font-color;
+    &:hover, &:active {
+      color: $base-font-color;
+    }
+  }
+
   &__modal-dialog-container {
     background-color: $theme-color;
     height: 100vh;

@@ -9,4 +9,5 @@ export default DS.Model.extend({
   password: DS.attr('string'),
   questions: DS.hasMany('question'),
   answers: DS.hasMany('answer'),
+
 });

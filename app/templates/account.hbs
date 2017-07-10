@@ -1,1 +1,13 @@
-{{outlet}}
+<div class="account">
+  <div class="account__nav">
+    <div class="account__menu">
+      {{link-to 'PROFILE' 'account.profile' data-test-profile-link=true class='account__link'}}
+      {{link-to 'MY QUESTIONS' 'account.my-questions' data-test-my-questions-link=true class='account__link'}}
+      {{link-to 'MY ANSWERS' 'account.my-answers' data-test-my-answers-link=true class='account__link'}}
+    </div>
+  </div>
+
+  <div class="account__view">
+    {{outlet}}
+  </div>
+</div>
