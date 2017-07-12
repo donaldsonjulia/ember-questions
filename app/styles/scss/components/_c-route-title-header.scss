@@ -16,3 +16,14 @@
     text-align: center;
   }
 }
+
+.c-route-title-header--child {
+  @include grid-media($medium-up-grid) {
+    @include grid-column(12);
+    @include grid-shift(0);
+  }
+
+  &__title {
+    font-size: 1em;
+  }
+}

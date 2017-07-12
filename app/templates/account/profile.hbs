@@ -2,7 +2,9 @@
   <div class="account-details__avatar">
     <img src={{model.avatar}}>
     <div class="account-details__avatar-edit">
-      {{fa-icon 'pencil'}}
+      {{#link-to 'account.avatar'}}
+        {{fa-icon 'pencil'}}
+      {{/link-to}}
     </div>
   </div>
   <ul class="account-details__details">
@@ -37,8 +39,10 @@
     <li>
       <span class="account-details__label">Password:</span>
       <span class="account-details__info">* * * * * *</span>
-      <div class="account-details__edit">
-        {{fa-icon 'pencil'}}
+      <div class="account-details__pw-edit">
+        {{#link-to 'account.password'}}
+          {{fa-icon 'pencil'}}
+        {{/link-to}}
       </div>
     </li>
   </ul>

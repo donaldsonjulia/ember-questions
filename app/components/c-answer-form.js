@@ -53,7 +53,7 @@ export default Ember.Component.extend({
         this.set('mobiledoc', blankMobiledoc);
 
       }).catch((error) => {
-        this.set('error', error);
+        this.set('showError', error);
       });
     },
 

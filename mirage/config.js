@@ -18,6 +18,19 @@ export default function() {
   this.get('/users');
   this.get('/users/:id');
   this.patch('/users/:id');
+  this.post('/users/change-password', (schema, request) => {
+    let { currentPassword, newPassword } = JSON.parse(request.requestBody);
+    if (currentPassword === newPassword) {
+      return new Mirage.Response(400);
+    } else {
+      return new Mirage.Response(200, {}, {
+        data: {
+          success: true,
+          message: 'Password updated.'
+        }
+      });
+    }
+  });
 
   /* below is for response when using the customjwt authenticator for authentication*/
 
