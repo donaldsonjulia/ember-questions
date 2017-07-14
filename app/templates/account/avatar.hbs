@@ -1,1 +1,30 @@
-{{c-route-title-header title='CHANGE PROFILE PHOTO' isChild=true}}
+<div class="account-avatar__existing-avatar">
+</div>
+
+{{#file-dropzone name="avatar" as |dropzone queue|}}
+  <div class="account-avatar__dropzone {{if dropzone.active 'account-avatar__dropzone--is-active'}}">
+    {{#if dropzone.active}}
+      {{#if dropzone.valid}}
+        Drop to upload
+      {{else}}
+        Invalid
+      {{/if}}
+    {{else if queue.files.length}}
+      Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+    {{else}}
+      <h4 class="avatar-dropzone__header">UPDATE PROFILE PHOTO</h4>
+      <p class="avatar-dropzone__text">
+        {{#if dropzone.supported}}
+          Drag and drop images onto this area to upload them or
+        {{/if}}
+        {{#file-upload name="avatar"
+                       class="avatar-dropzone__upload-link"
+                       accept="image/*"
+                       multiple=true
+                       onfileadd=(action "uploadImage")}}
+          <a id="upload-avatar" tabindex=0>Add an Image.</a>
+        {{/file-upload}}
+      </p>
+    {{/if}}
+  </div>
+{{/file-dropzone}}

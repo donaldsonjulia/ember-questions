@@ -1,0 +1,45 @@
+.account-avatar {
+
+  &__dropzone {
+    @include grid-column(1, $single-grid);
+
+    @include grid-media($medium-up-grid) {
+      @include grid-column(8);
+    }
+
+    border: $base-border;
+    border-radius: $base-border-radius;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all $base-duration $base-timing;
+
+    &--is-active {
+      background: $secondary-background-color;
+    }
+  }
+
+
+}
+
+
+.avatar-dropzone {
+  &__header {
+    margin-bottom: $small-spacing;
+  }
+
+  &__text {
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  &__upload-link {
+    > a {
+      border-bottom: 1px solid $action-color;
+      cursor: pointer;
+    }
+  }
+}
