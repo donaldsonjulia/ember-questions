@@ -32,6 +32,9 @@ export default function() {
     }
   });
 
+  this.get('/avatars/:id');
+
+
   /* below is for response when using the customjwt authenticator for authentication*/
 
   this.post('/token', (schema, request) => {

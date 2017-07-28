@@ -3,11 +3,8 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model() {
-    let currentUserId = this.get('currentUser.user.id');
-    // return this.store.query('question', {
-    //   filter: { author: currentUserId }
-    // });
-    return this.store.findRecord('user', currentUserId, { include: 'questions' });
+    let user = this.modelFor('account');
+    return this.store.findRecord('user', user.id, { include: 'questions' }); //TODO: ask Taras about problems implementing query filter for questions authored by currentUser
   }
 
 });
