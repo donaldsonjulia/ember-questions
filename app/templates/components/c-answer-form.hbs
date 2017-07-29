@@ -4,7 +4,7 @@
       <legend>POST AN ANSWER:</legend>
 
       <div class="md__container">
-        {{#mobiledoc-editor on-change=(action 'mobiledocWasUpdated') as |editor|}}
+        {{#mobiledoc-editor mobiledoc=mobiledoc on-change=(action 'mobiledocWasUpdated') as |editor|}}
           <div class="md__toolbar">
             <div class="md__toolbar-section">
               {{#mobiledoc-markup-button editor=editor for="strong"}}{{fa-icon  "bold"}}{{/mobiledoc-markup-button}}
@@ -22,7 +22,9 @@
           </div>
         {{/mobiledoc-editor}}
       </div>
-
+    {{#if showError}}
+      <span class="flash-error">Oops, an error occurred while posting...</span>
+    {{/if}}
     <button class="c-answer-form__submit-btn" type="submit" disabled={{formIncomplete}} data-test-answer-submit>SUBMIT</button>
   </form>
 

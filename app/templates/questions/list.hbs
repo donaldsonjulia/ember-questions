@@ -15,7 +15,7 @@
         <tr data-test-question-id={{question.id}} class="question-table__question-row">
           <td class="question-table__question-data question-table__question-data--answers">
               <div class="answers" data-test-answer-amount-for={{question.id}}>
-                {{answer-amount question.answers.length}}
+                {{c-answer-amount amount=question.answers.length}}
               </div>
           </td>
           <td class="question-table__question-data question-table__question-data--subject">

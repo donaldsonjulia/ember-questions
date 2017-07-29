@@ -20,7 +20,8 @@ model({ page, sort, limit }) {
   return this.store.query('question', {
     page,
     sort,
-    limit
+    limit,
+    include: 'author,answers' //TODO: ask Taras: trying to solve the n+1 query problem, this seems to return all answers in store, not just ones belonging to the questions returned
    });
 },
 

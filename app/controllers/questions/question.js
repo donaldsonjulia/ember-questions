@@ -4,8 +4,14 @@ import { task } from 'ember-concurrency';
 export default Ember.Controller.extend({
 
   saveAnswer: task(function * (question, answer) {
-    yield answer.save();
-    return yield question.save();
+    try {
+      yield answer.save();
+      return yield question.save();
+    } catch (e) {
+      question.rollbackAttributes();
+      answer.deleteRecord();
+      throw e;
+    }
   }),
 
   actions: {

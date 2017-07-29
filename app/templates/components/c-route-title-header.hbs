@@ -1,3 +1,5 @@
-<div class="c-route-title-header {{media.classNames}}">
-  <h1 class="c-route-title-header__title">{{title}}</h1>
+<div class="c-route-title-header {{if 'isChild' 'c-route-title-header--child'}}">
+  <h1 class="c-route-title-header__title {{if 'isChild' 'c-route-title-header--child__title'}}">
+    {{title}}
+  </h1>
 </div>

@@ -1,0 +1,51 @@
+<div class="account-details">
+  <div class="account-details__avatar">
+    <img src={{model.avatar.url}}>
+    <div class="account-details__avatar-edit">
+      {{#link-to 'account.avatar'}}
+        {{fa-icon 'pencil'}}
+      {{/link-to}}
+    </div>
+  </div>
+  <ul class="account-details__details">
+    {{profile-field
+        tagName="li"
+        user=model
+        field="username"
+        label="Username"
+        onUpdate=(action 'saveChange')
+    }}
+    {{profile-field
+        tagName="li"
+        user=model
+        field="name"
+        label="First Name"
+        onUpdate=(action 'saveChange')
+    }}
+    {{profile-field
+        tagName="li"
+        user=model
+        field="surname"
+        label="Last Name"
+        onUpdate=(action 'saveChange')
+    }}
+    {{profile-field
+        tagName="li"
+        user=model
+        field="email"
+        label="Email"
+        onUpdate=(action 'saveChange')
+    }}
+    <li>
+      <span class="account-details__label">Password:</span>
+      <span class="account-details__info">* * * * * *</span>
+      <div class="account-details__pw-edit">
+        {{#link-to 'account.password'}}
+          {{fa-icon 'pencil'}}
+        {{/link-to}}
+      </div>
+    </li>
+  </ul>
+</div>
+
+{{outlet}}

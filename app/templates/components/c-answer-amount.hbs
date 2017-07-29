@@ -1,0 +1,15 @@
+{{yield}}
+
+<div class="answers" data-test-answer-amount-for={{question.id}}>
+
+  {{#if hasNoAnswers}}
+
+      <span class="no-answers">NEEDS ANSWER</span>
+
+  {{else}}
+
+      <span class="answers-number">{{amount}}</span><span class="has-answers">{{answerSuffix}}</span>
+
+  {{/if}}
+
+</div>

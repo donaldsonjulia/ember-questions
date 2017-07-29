@@ -16,7 +16,12 @@ Router.map(function() {
     this.route('search');
   });
   this.route('login');
-  this.route('account');
+  this.route('account', function() {
+    this.route('profile', function() {});
+    this.route('my-questions');
+    this.route('password');
+    this.route('avatar');
+  });
 });
 
 export default Router;

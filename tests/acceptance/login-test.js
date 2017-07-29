@@ -23,7 +23,7 @@ test('if user is not logged in, they see a login form', function(assert) {
   invalidateSession(this.application);
   visit('/login');
   andThen(() => {
-    let loginFormExists = find(testSelector('login-form')).length > 0 ? true : false;
+    let loginFormExists = find(testSelector('login-form')).length > 0;
     assert.equal(loginFormExists, true, 'login form displays if user is not logged in');
   });
 });
@@ -33,9 +33,9 @@ test('if user is logged in, they see a link to logout', function(assert) {
   authenticateSession(this.application, {user_id: 1});
   visit('/login');
   andThen(() => {
-    let logoutLinkExists = find(testSelector('logout-link')).length > 0 ? true : false;
-    let headerLogoutLinkExists = find(testSelector('header-logout-link')).length > 0 ? true : false;
-    let loginFormExists = find(testSelector('login-form')).length > 0 ? true : false;
+    let logoutLinkExists = find(testSelector('logout-link')).length > 0;
+    let headerLogoutLinkExists = find(testSelector('header-logout-link')).length > 0;
+    let loginFormExists = find(testSelector('login-form')).length > 0;
 
     assert.equal(logoutLinkExists, true, 'logout link exists on page if user is logged in');
     assert.equal(headerLogoutLinkExists, true, 'logout link exists in header if user is logged in');
@@ -118,7 +118,7 @@ test('if user inputs incorrect credentials, they see error message', function(as
   click(testSelector('login-btn'));
 
   andThen(() => {
-    let loginErrorMessageExists = find(testSelector('login-error')).length > 0 ? true : false;
+    let loginErrorMessageExists = find(testSelector('login-error')).length > 0;
     let loginErrorMessage = find(testSelector('login-error')).text().trim();
     assert.ok(loginErrorMessageExists, 'login error flash displays if incorrect credentials');
     assert.equal(loginErrorMessage, 'Invalid username and password.', 'error message displays correctly');
