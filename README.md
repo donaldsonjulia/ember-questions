@@ -1,6 +1,15 @@
 # Ember Q&A
 
-An app for posting questions and answers about Ember. This project is an ongoing exercise to learn and experiment with Ember. 
+An app for posting questions and answers about Ember.
+
+This project is an ongoing exercise to learn and experiment with Ember. 
+[ember-cli-mirage](https://github.com/samselikoff/ember-cli-mirage) is used to provide all mock server data.
+You can view the current state of the project's development at: 
+
+[https://ember-questions.development.pagefrontapp.com](https://ember-questions.development.pagefrontapp.com)
+
+
+
 
 ## Prerequisites
 
