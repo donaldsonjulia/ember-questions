@@ -1,7 +1,6 @@
-# questions
+# Ember Q&A
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+An app for posting questions and answers about Ember. This project is an ongoing exercise to learn and experiment with Ember. 
 
 ## Prerequisites
 
