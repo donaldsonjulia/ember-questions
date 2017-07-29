@@ -21,13 +21,11 @@ export default Ember.Controller.extend({
          }
         });
 
-        let response = yield image.upload('/images');
-        set(image, 'url', response.headers.Location);
+        let response = yield image.upload('/api/avatars/upload');
+        set(avatar, 'url', response.headers.Location);
         yield avatar.save();
-
      } catch(e) {
        avatar.rollbackAttributes();
-       console.log('problem uploading!');
      }
 
   }),
