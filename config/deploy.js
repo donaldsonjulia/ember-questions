@@ -1,7 +1,7 @@
 module.exports = function(deployTarget) {  
   return {
     pagefront: {
-      app: 'emberquestionsapp',
+      app: 'ember-questions',
       key: process.env.PAGEFRONT_KEY
     }
   };
