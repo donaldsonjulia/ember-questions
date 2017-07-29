@@ -8,6 +8,11 @@ You can view the current state of the project's development at:
 
 [https://ember-questions.development.pagefrontapp.com](https://ember-questions.development.pagefrontapp.com)
 
+Login using the following credentials:
+
+* username: Guest
+* password: password
+
 
 
 
