@@ -15,5 +15,10 @@ export default Ember.Service.extend({
     } else {
       return RSVP.resolve();
     }
+  },
+
+  logout() {
+    this.set('user', null);
   }
+
 });
