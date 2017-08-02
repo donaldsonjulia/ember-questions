@@ -25,14 +25,15 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     this.set('mobiledoc', null);
+    this.set('editedDoc', null);
   },
 
   question: null,
   'on-submit': null,
 
-  formIncomplete: computed('mobiledoc', function() {
+  formIncomplete: computed('editedDoc', function() {
 
-    let content = this.get('mobiledoc');
+    let content = this.get('editedDoc');
 
     return  isEmpty(content);
   }),
@@ -42,7 +43,7 @@ export default Ember.Component.extend({
     postAnswer() {
       let question = this.get('question');
       let author = this.get('currentUser').user;
-      let content = JSON.stringify(this.get('mobiledoc'));
+      let content = JSON.stringify(this.get('editedDoc'));
 
       this.get('on-submit')({
         question,
@@ -50,7 +51,15 @@ export default Ember.Component.extend({
         content
       }).then(() => {
 
-        this.set('mobiledoc', blankMobiledoc);
+        //below accounts for bug in which editor does not clear when posting more than once
+        //must change value of mobiledoc explicitly to get editor to re-render
+        if (this.get('mobiledoc') === blankMobiledoc) {
+          this.set('mobiledoc', null);
+        } else {
+          this.set('mobiledoc', blankMobiledoc);
+        }
+
+        this.set('editedDoc', null);
 
       }).catch((error) => {
         this.set('showError', error);
@@ -58,7 +67,7 @@ export default Ember.Component.extend({
     },
 
     mobiledocWasUpdated(updatedDoc) {
-      this.set('mobiledoc', updatedDoc);
+      this.set('editedDoc', updatedDoc);
     },
 
   }
