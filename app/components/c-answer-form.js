@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import createComponentCard from 'ember-mobiledoc-editor/utils/create-component-card';
 
 const {
   computed,
@@ -14,6 +15,7 @@ let blankMobiledoc = {
   sections: []
 };
 
+
 export default Ember.Component.extend({
 
   classNames: ['c-answer-form'],
@@ -27,6 +29,12 @@ export default Ember.Component.extend({
     this.set('mobiledoc', null);
     this.set('editedDoc', null);
   },
+
+  cards: computed(function() {
+    return [
+      createComponentCard('code-snippet-card')
+    ];
+  }),
 
   question: null,
   'on-submit': null,
@@ -68,6 +76,15 @@ export default Ember.Component.extend({
 
     mobiledocWasUpdated(updatedDoc) {
       this.set('editedDoc', updatedDoc);
+    },
+
+    willCreateEditor() {
+      console.log('About to create the editor');
+    },
+
+    didCreateEditor(editor) {
+      console.log('Created the editor, see below:');
+      console.log(editor);
     },
 
   }
