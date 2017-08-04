@@ -1,7 +1,4 @@
-{{yield}}
-{{#if data.codeContent}}
-  <code>{{data.codeContent}}</code>
-{{else}}
-  <code>add code here...</code>
-{{/if}}
-<button onclick={{editCard}}>Edit</button>
+<div class="code-snippet-card">
+  {{ivy-codemirror value=payload.codeContent options=codeMirrorOptions}}
+  <button onclick={{editCard}}>Edit</button>
+</div>

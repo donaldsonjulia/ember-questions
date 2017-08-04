@@ -11,6 +11,10 @@ module.exports = function(defaults) {
     },
     'ember-font-awesome': {
       useScss: true, // for ember-cli-sass
+    },
+    codemirror: {
+      themes: ['elegant'],
+      modes: ['javascript', 'htmlmixed', 'xml', 'css'], //htmlmixed mode depends on javascript, xml, and css
     }
   });
 
