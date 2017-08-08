@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+let defaultCode = 'let x = 2';
 export default Ember.Component.extend({
 
   codeMirrorOptions: {
@@ -9,9 +10,15 @@ export default Ember.Component.extend({
       theme: 'elegant',
   },
 
+  payload: {
+    codeContent: defaultCode
+  },
+
   actions: {
     updateCodeContent(newCode) {
-      this.set('payload.codeContent', newCode);
+      //saveCard is an action provided by mobiledoc helper createComponentCard
+      //first argument is payload, second is the value for transition (false, so card does not toggle away from edit mode)
+      this.get('saveCard')({ codeContent: newCode }, false);
     }
   }
 });

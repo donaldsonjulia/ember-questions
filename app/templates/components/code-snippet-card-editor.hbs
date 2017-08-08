@@ -1,5 +1,3 @@
 <div class="code-snippet-card-editor">
   {{ivy-codemirror value=payload.codeContent valueUpdated=(action 'updateCodeContent') options=codeMirrorOptions}}
-  <button onclick={{action saveCard (hash codeContent=payload.codeContent)}}>Save</button>
-  <button onclick={{cancelCard}}>Cancel</button>
 </div>
