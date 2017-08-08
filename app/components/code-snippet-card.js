@@ -5,8 +5,9 @@ export default Ember.Component.extend({
   codeMirrorOptions: {
       readOnly: true,
       lineNumbers: true,
-      mode: 'htmlmixed',
-      theme: 'elegant'
+      mode: 'javascript',
+      theme: 'elegant',
   },
 
 });
+ 

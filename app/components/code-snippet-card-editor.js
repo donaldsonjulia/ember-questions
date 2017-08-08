@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 
   codeMirrorOptions: {
       lineNumbers: true,
-      mode: 'htmlmixed',
+      mode: 'javascript',
       autofocus: true,
       theme: 'elegant',
   },

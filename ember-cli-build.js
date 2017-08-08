@@ -15,6 +15,7 @@ module.exports = function(defaults) {
     codemirror: {
       themes: ['elegant'],
       modes: ['javascript', 'htmlmixed', 'xml', 'css'], //htmlmixed mode depends on javascript, xml, and css
+    
     }
   });
 

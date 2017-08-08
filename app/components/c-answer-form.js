@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import createComponentCard from 'ember-mobiledoc-editor/utils/create-component-card';
 
 const {
   computed,
@@ -29,12 +28,6 @@ export default Ember.Component.extend({
     this.set('mobiledoc', null);
     this.set('editedDoc', null);
   },
-
-  cards: computed(function() {
-    return [
-      createComponentCard('code-snippet-card')
-    ];
-  }),
 
   question: null,
   'on-submit': null,
@@ -83,8 +76,7 @@ export default Ember.Component.extend({
     },
 
     didCreateEditor(editor) {
-      console.log('Created the editor, see below:');
-      console.log(editor);
+      console.log('Created the editor');
     },
 
   }

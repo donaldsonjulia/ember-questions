@@ -6,7 +6,7 @@
       <div class="md__container">
         {{#mobiledoc-editor
           mobiledoc=mobiledoc
-          cards=cards
+          cards=(mobiledoc-component-cards)
           will-create-editor=(action 'willCreateEditor')
           did-create-editor=(action 'didCreateEditor')
           on-change=(action 'mobiledocWasUpdated')
