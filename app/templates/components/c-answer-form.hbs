@@ -4,7 +4,13 @@
       <legend>POST AN ANSWER:</legend>
 
       <div class="md__container">
-        {{#mobiledoc-editor mobiledoc=mobiledoc on-change=(action 'mobiledocWasUpdated') as |editor|}}
+        {{#mobiledoc-editor
+          mobiledoc=mobiledoc
+          cards=(mobiledoc-component-cards)
+          will-create-editor=(action 'willCreateEditor')
+          did-create-editor=(action 'didCreateEditor')
+          on-change=(action 'mobiledocWasUpdated')
+          as |editor|}}
           {{md-toolbar editor=editor}}
         {{/mobiledoc-editor}}
       </div>

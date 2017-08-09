@@ -69,17 +69,28 @@
     font-weight: bold;
   }
 
-  code {
-    background-color: $secondary-background-color;
-    padding: 3px;
-  }
-
 }
 
+
+//placeholder styling
 .__mobiledoc-editor.__has-no-content:after {
     content: attr(data-placeholder);
     color: tint($base-font-color, 40%);;
     cursor: text;
     position: absolute;
     top: 1em;
+}
+
+//overriding default of inline-block
+.__mobiledoc-card {
+  display: block;
+}
+
+.mobiledoc-selection-tether {
+  background-color: $base-background-color;
+  padding: $small-spacing;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: 0 2px 4px $light-gray;
+  margin-top: 10px;
 }

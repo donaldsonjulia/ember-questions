@@ -14,6 +14,7 @@ let blankMobiledoc = {
   sections: []
 };
 
+
 export default Ember.Component.extend({
 
   classNames: ['c-answer-form'],
@@ -68,6 +69,14 @@ export default Ember.Component.extend({
 
     mobiledocWasUpdated(updatedDoc) {
       this.set('editedDoc', updatedDoc);
+    },
+
+    willCreateEditor() {
+      console.log('About to create the editor');
+    },
+
+    didCreateEditor(editor) {
+      console.log('Created the editor');
     },
 
   }
