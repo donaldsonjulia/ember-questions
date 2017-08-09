@@ -10,7 +10,6 @@
   </div>
   <div class="md__toolbar-section">
     {{#mobiledoc-link-button editor=editor}}{{fa-icon "link"}}{{/mobiledoc-link-button}}
-    {{#mobiledoc-markup-button editor=editor for="code"}}{{fa-icon  "code"}}{{/mobiledoc-markup-button}}
-    <button {{action 'addCode'}}>add code snippet</button>
+    <button {{action editor.addCardInEditMode 'code-snippet-card'}}>{{fa-icon  "code"}}</button>
   </div>
 </div>
