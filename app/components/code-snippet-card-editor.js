@@ -1,18 +1,15 @@
 import Ember from 'ember';
 
-let defaultCode = 'let x = 2';
+let defaultCode = 'let x = 2;';
 export default Ember.Component.extend({
 
   codeMirrorOptions: {
       lineNumbers: true,
       mode: 'javascript',
-      autofocus: true,
       theme: 'elegant',
   },
 
-  payload: {
-    codeContent: defaultCode
-  },
+  codeContent: defaultCode,
 
   actions: {
     updateCodeContent(newCode) {
