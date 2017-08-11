@@ -5,7 +5,10 @@
   <form class="new-question-form" {{action "createQuestion" on="submit"}} data-test-new-question-form>
       {{input type="text" placeholder="Subject" value=subject data-test-subject-input=true}}
       <div class="md__container">
-        {{#mobiledoc-editor on-change=(action 'mobiledocWasUpdated') as |editor|}}
+        {{#mobiledoc-editor
+          on-change=(action 'mobiledocWasUpdated')
+          cards=(mobiledoc-component-cards)
+          as |editor|}}
           {{md-toolbar editor=editor}}
         {{/mobiledoc-editor}}
       </div>
