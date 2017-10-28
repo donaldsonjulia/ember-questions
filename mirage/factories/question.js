@@ -24,7 +24,7 @@ let fakeContent = {
 };
 
 export default Factory.extend({
-  subject() { return `${faker.hacker.ingverb()}  ${faker.hacker.adjective()} ${faker.hacker.noun()}`; },
+  subject() { return faker.lorem.words(); },
   createdAt() { return faker.date.past(); },
   content: JSON.stringify(fakeContent),
 
