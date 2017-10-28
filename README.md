@@ -1,5 +1,7 @@
 # Ember Q&A
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/donaldsonjulia/ember-questions.svg)](https://greenkeeper.io/)
+
 An app for posting questions and answers about Ember.
 
 This project is an ongoing exercise to learn and experiment with Ember. 
