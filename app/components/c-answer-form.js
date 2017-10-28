@@ -71,13 +71,6 @@ export default Ember.Component.extend({
       this.set('editedDoc', updatedDoc);
     },
 
-    willCreateEditor() {
-      console.log('About to create the editor');
-    },
-
-    didCreateEditor(editor) {
-      console.log('Created the editor');
-    },
 
   }
 });

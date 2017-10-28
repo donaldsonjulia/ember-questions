@@ -7,8 +7,6 @@
         {{#mobiledoc-editor
           mobiledoc=mobiledoc
           cards=(mobiledoc-component-cards)
-          will-create-editor=(action 'willCreateEditor')
-          did-create-editor=(action 'didCreateEditor')
           on-change=(action 'mobiledocWasUpdated')
           as |editor|}}
           {{md-toolbar editor=editor}}
